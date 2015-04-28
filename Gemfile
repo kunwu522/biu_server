@@ -33,7 +33,7 @@ gem 'responders', '~> 2.0'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.4.0'
-gem 'capistrano-rbenv', '~> 2.0', require: false
+gem 'capistrano-rbenv', '~> 2.0'
 gem 'capistrano-rails', group: :development
 gem 'capistrano-passenger', group: :development
 
