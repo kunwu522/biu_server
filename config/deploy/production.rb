@@ -20,9 +20,9 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w{root@123.56.129.119}
-role :web, %w{root@123.56.129.119}
-role :db, %w{root@123.56.129.119}
+role :app, %w{deploy@123.56.129.119}
+role :web, %w{deploy@123.56.129.119}
+role :db, %w{deploy@123.56.129.119}
 
 # Configuration
 # =============
@@ -52,8 +52,8 @@ set :ssh_options, {
   keys: %w(~/.ssh/id_rsa),
   forward_agent: false,
   auth_methods: %w(password),
-  password: 'user_roots_password',
-  user: 'root',
+  password: 'user_deploys_password',
+  user: 'deploy',
 }
 
 # The server-based syntax can be used to override options:
@@ -68,4 +68,4 @@ set :ssh_options, {
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
-server '123.56.129.119', user: 'root', roles: %w{web app}
+server '123.56.129.119', user: 'deploy', roles: %w{web app}
