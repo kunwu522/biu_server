@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
     
-    attr_accessor :name, :email
-    
     before_save { self.email = self.email.downcase }
     
     validates :username, presence: true, length: { maximum: 50 }
