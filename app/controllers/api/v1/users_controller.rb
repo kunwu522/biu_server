@@ -19,7 +19,11 @@ class Api::V1::UsersController < Api::V1::BaseController
         end
     end
     
-  
+    def search
+        @user = User.find_by(email: params[:email])
+        respond_with(@user)
+    end
+    
     private
   
         def user_params
