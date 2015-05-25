@@ -22,8 +22,23 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
     
     def search
-        @user = User.find_by(email: params[:email])
+        @user = User.find_by(email: params[:email].downcase)
         respond_with(@user)
+    end
+    
+    def login
+        user = User.find_by(email: params[:email].downcase)
+        if user && user.authenticate(params[:password])
+            Rails.logger.debug { "#{user.email} log in..." }
+            user_response = {
+                'id' => @user.id,
+                'username' => @user.username
+                'password' => @user.password
+                'email' => @user.email
+            }
+            render json: user_response
+        else
+            render json: @user.errors, status: :unprocessable_entity
     end
     
     private
