@@ -12,6 +12,8 @@ class Api::V1::UsersController < Api::V1::BaseController
             user_response = {
                 'id' => @user.id,
                 'username' => @user.username
+                'password' => @user.password
+                'email' => @user.email
             }
             render json: user_response
         else

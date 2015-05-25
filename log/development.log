@@ -1889,3 +1889,44 @@ Processing by Api::V1::UsersController#search as */*
   [1m[36mUser Load (7.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1[0m
   Rendered api/v1/users/search.json.jbuilder (3.0ms)
 Completed 200 OK in 24ms (Views: 16.2ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2015-05-25 17:04:45 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"username"=>"lv", "email"=>"lv@biulove.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"lv", "email"=>"lv@biulove.com"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'lv@biulove.com' LIMIT 1[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO `users` (`username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('lv', 'lv@biulove.com', '$2a$10$y4mwRX5uDIDnd.UmO3v2Ge9V8l9ATN5os/e2DrYTclGb6wgWX7sS6', '2015-05-25 09:04:46', '2015-05-25 09:04:46')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 122ms (Views: 0.4ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2015-05-25 17:17:11 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"username"=>"lv", "email"=>"lv@biulove.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"lv", "email"=>"lv@biulove.com"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'lv@biulove.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('lv', 'lv@biulove.com', '$2a$10$1VaqzeaLR0I3pBxEH0jMRuZFXizDT/cLitopAQSmuUvW0UnCJiKkW', '2015-05-25 09:17:11', '2015-05-25 09:17:11')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2015-05-25 17:25:03 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"username"=>"lv", "email"=>"lv@biulove.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"lv", "email"=>"lv@biulove.com"}}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'lv@biulove.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('lv', 'lv@biulove.com', '$2a$10$WrzhQ3BtTVCD9ALWbCOVx.EKsoyOkiEydza35oy1hsTf/eGO0T/M.', '2015-05-25 09:25:03', '2015-05-25 09:25:03')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 102ms (Views: 1.4ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2015-05-25 17:25:46 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"username"=>"test01", "email"=>"test01@biulove.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"test01", "email"=>"test01@biulove.com"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('test01', 'test01@biulove.com', '$2a$10$7MC1oRB1nwx.XcFKAW0RA.ocuz8Go79ly27zfHSZgNa3lFTmEyxOS', '2015-05-25 09:25:46', '2015-05-25 09:25:46')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 80ms (Views: 0.4ms | ActiveRecord: 1.2ms)
