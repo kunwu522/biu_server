@@ -11,8 +11,8 @@ class Api::V1::UsersController < Api::V1::BaseController
         if @user.save
             user_response = {
                 'id' => @user.id,
-                'username' => @user.username
-                'password' => @user.password
+                'username' => @user.username,
+                'password' => @user.password_digest,
                 'email' => @user.email
             }
             render json: user_response
@@ -31,14 +31,19 @@ class Api::V1::UsersController < Api::V1::BaseController
         if user && user.authenticate(params[:password])
             Rails.logger.debug { "#{user.email} log in..." }
             user_response = {
-                'id' => @user.id,
-                'username' => @user.username
-                'password' => @user.password
-                'email' => @user.email
+                'id' => user.id,
+                'username' => user.username,
+                'password' => user.password_digest,
+                'email' => user.email
             }
             render json: user_response
         else
-            render json: @user.errors, status: :unprocessable_entity
+            error = {
+                'errorCode' => '1001',
+                'errorMessage' => 'Invalid email or password.'
+            }
+            render json: error, status: :unprocessable_entity
+        end
     end
     
     private
