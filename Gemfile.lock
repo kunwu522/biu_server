@@ -60,6 +60,11 @@ GEM
     capistrano-rbenv (2.0.3)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -70,6 +75,13 @@ GEM
     colorize (0.7.7)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    devise (3.5.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.5.2)
     globalid (0.3.5)
@@ -97,6 +109,7 @@ GEM
     net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    orm_adapter (0.5.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -159,6 +172,8 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -176,7 +191,9 @@ DEPENDENCIES
   capistrano-passenger
   capistrano-rails
   capistrano-rbenv (~> 2.0)
+  carrierwave
   coffee-rails (~> 4.1.0)
+  devise
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

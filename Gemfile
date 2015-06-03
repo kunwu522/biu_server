@@ -37,6 +37,12 @@ gem 'capistrano-rbenv', '~> 2.0'
 gem 'capistrano-rails', group: :development
 gem 'capistrano-passenger', group: :development
 
+# Image update
+gem 'carrierwave'
+
+# Authentication
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
