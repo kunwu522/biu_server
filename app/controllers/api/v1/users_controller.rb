@@ -9,6 +9,7 @@ class Api::V1::UsersController < Api::V1::BaseController
         @user = User.new(username: params[:username], email: params[:email], 
                         password: params[:password], password_confirmation: params[:password_confirmation])
         if @user.save
+            log_in @user
             user_response = {
                 'id' => @user.id,
                 'username' => @user.username,
@@ -24,26 +25,6 @@ class Api::V1::UsersController < Api::V1::BaseController
     def search
         @user = User.find_by(email: params[:email].downcase)
         respond_with(@user)
-    end
-    
-    def login
-        user = User.find_by(email: params[:email].downcase)
-        if user && user.authenticate(params[:password])
-            Rails.logger.debug { "#{user.email} log in..." }
-            user_response = {
-                'id' => user.id,
-                'username' => user.username,
-                'password' => user.password_digest,
-                'email' => user.email
-            }
-            render json: user_response
-        else
-            error = {
-                'errorCode' => '1001',
-                'errorMessage' => 'Invalid email or password.'
-            }
-            render json: error, status: :unprocessable_entity
-        end
     end
     
     private
