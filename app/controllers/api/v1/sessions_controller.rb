@@ -1,4 +1,4 @@
-class Api::V1::SessionsController < Api::V1::BaseController
+class Api::V1::SessionsController < ApplicationController
     def create
         user = User.find_by(email: params[:session][:email].downcase)
         if user && user.authenticate(params[:session][:password])
@@ -23,5 +23,8 @@ class Api::V1::SessionsController < Api::V1::BaseController
     
     def destroy
         log_out
+        response = {'status' => 'ok',
+                    'message' => "user has log out"}
+        render json: response, status: :ok
     end
 end

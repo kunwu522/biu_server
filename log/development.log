@@ -3768,3 +3768,1010 @@ wukun@biulove.com log in...
   [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `remember_digest` = '$2a$10$rYtQQhFO/2fArpG4rBd2kuaTSZRDWaZEpKFBGuFl3aOalxZ6BW8GS', `updated_at` = '2015-06-04 12:02:10' WHERE `users`.`id` = 1[0m
   [1m[35m (0.9ms)[0m  COMMIT
 Completed 200 OK in 149ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-05 12:29:08 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$htKKgeIE9GM0mTnnwCQjUOo/EYienUzorOy/sTz7MZrrFueqYv4cq', `updated_at` = '2015-06-05 04:29:09' WHERE `users`.`id` = 1
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 183ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2015-06-05 12:29:51 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"email"=>"lv@biulove.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"lv", "user"=>{"username"=>"lv", "email"=>"lv@biulove.com"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'lv@biulove.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('lv', 'lv@biulove.com', '$2a$10$zWtZrfhY0lotpEzpAwmF7uE7lUuzFE.RKIO0iYUOe1eXlqQ85gfvi', '2015-06-05 04:29:51', '2015-06-05 04:29:51')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 86ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 12:34:07 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$045WrHiLa/l2pG0STMLwvuhBEfDWxzz/cc4EvRSQdCltN1QdrRoXC', `updated_at` = '2015-06-05 04:34:07' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 157ms (Views: 0.3ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 12:34:27 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$Gw4vjv2wlL20RkiBJFqZZOUE4qRaWJt0EU2q5GGsgyesZmg4w17..', `updated_at` = '2015-06-05 04:34:27' WHERE `users`.`id` = 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 138ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 12:35:29 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+Completed 422 Unprocessable Entity in 72ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 13:17:19 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 69ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 13:22:42 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+Completed 422 Unprocessable Entity in 69ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 13:23:22 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 68ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 13:23:50 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+Completed 422 Unprocessable Entity in 66ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateProfiles (20150605053757)
+  [1m[35m (44.1ms)[0m  CREATE TABLE `profiles` (`id` int(11) auto_increment PRIMARY KEY, `birthday` date, `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_profiles_on_user_id`  (`user_id`) ) ENGINE=InnoDB
+  [1m[36m (30.4ms)[0m  [1mALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_e424190865`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150605053757')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `profiles`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 15:39:06 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$8j1yOAvy8ESEoytcghm6T.nUDXg3kduotDUTC0E6QP238U/3lhN2i', `updated_at` = '2015-06-05 07:39:06' WHERE `users`.`id` = 1
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 184ms (Views: 0.3ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/api/v1/logout" for 127.0.0.1 at 2015-06-05 15:39:12 +0800
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/logout"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.7ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (115.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (65.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (146.9ms)
+
+
+Started DELETE "/api/v1/login?email=wukun%40biulove.com&password=[FILTERED]" for 127.0.0.1 at 2015-06-05 15:40:10 +0800
+
+ActionController::RoutingError (No route matches [DELETE] "/api/v1/login"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (88.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (62.7ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (136.2ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 15:40:51 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$uZiMarLLeIEJL8ACU/pjDugK5bI6J73TXfJJuL7onc04xFqaWGSze', `updated_at` = '2015-06-05 07:40:51' WHERE `users`.`id` = 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 144ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/v1/logout" for 127.0.0.1 at 2015-06-05 15:40:59 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 07:40:59' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.9ms)
+
+ActionView::MissingTemplate (Missing template api/v1/sessions/destroy, application/destroy with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/tony/work/Biu/biu_server/app/views"
+  * "/Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/apipie-rails-0.3.4/app/views"
+):
+  actionview (4.2.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.1) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  apipie-rails (0.3.4) lib/apipie/static_dispatcher.rb:65:in `call'
+  apipie-rails (0.3.4) lib/apipie/extractor/recorder.rb:132:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (77.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (59.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (135.6ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 16:47:07 +0800
+
+Mysql2::Error (Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)):
+  mysql2 (0.3.18) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.18) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:567:in `retrieve_connection'
+  activerecord (4.2.1) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.1) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.1) lib/active_record/migration.rb:384:in `connection'
+  activerecord (4.2.1) lib/active_record/migration.rb:371:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.1ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.6ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fb6253d7268 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fb6253d6f48 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fb6260e3880 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 16:47:39 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$3Az2eY2D3fdyxniemcF9jORJCc5xyWc0Ei2V1ZKsJobLAg/foSinm', `updated_at` = '2015-06-05 08:47:40' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 184ms (Views: 0.3ms | ActiveRecord: 7.9ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 16:47:47 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 08:47:47' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 16:50:23 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$Q.Y8GcOYkyKlqOBBm7x6H.Kxx0ymhQDicl/iht1e8Qzvoh9vZm.j.', `updated_at` = '2015-06-05 08:50:23' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 162ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 16:50:31 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 08:50:31' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/api/v1/logout.json" for ::1 at 2015-06-05 17:35:45 +0800
+Processing by Api::V1::SessionsController#destroy as JSON
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `forget' for nil:NilClass):
+  app/helpers/api/v1/sessions_helper.rb:23:in `forget'
+  app/helpers/api/v1/sessions_helper.rb:9:in `log_out'
+  app/controllers/api/v1/sessions_controller.rb:25:in `destroy'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (65.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (148.4ms)
+
+
+Started DELETE "/api/v1/logout.json" for ::1 at 2015-06-05 17:38:32 +0800
+Processing by Api::V1::SessionsController#destroy as JSON
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `forget' for nil:NilClass):
+  app/helpers/api/v1/sessions_helper.rb:23:in `forget'
+  app/helpers/api/v1/sessions_helper.rb:9:in `log_out'
+  app/controllers/api/v1/sessions_controller.rb:25:in `destroy'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (63.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (136.9ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 17:39:19 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$np43174LSjrZCtdcn0aO6ecTl2WupocYws9qOmG5EpLRp7gN3eRSu', `updated_at` = '2015-06-05 09:39:20' WHERE `users`.`id` = 1
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 163ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 17:39:26 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 09:39:26' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 17:40:04 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$F4NiaEMSHULNJzwnm8bzeecY1Q0Wn2OzH/WvKxqxYuPHuqztYr5EW', `updated_at` = '2015-06-05 09:40:04' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 157ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 17:40:09 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 09:40:09' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 1.3ms)
+
+ActionView::MissingTemplate (Missing template api/v1/sessions/destroy, application/destroy with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/tony/work/Biu/biu_server/app/views"
+  * "/Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/apipie-rails-0.3.4/app/views"
+):
+  app/controllers/api/v1/sessions_controller.rb:26:in `destroy'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (71.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (60.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (135.4ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 17:42:45 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$gtS5RliAIKoi1Lyurps8zO31mux5ODCKUAqoXGRvp9dEAK2TfEqfK', `updated_at` = '2015-06-05 09:42:45' WHERE `users`.`id` = 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 157ms (Views: 0.2ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 17:42:49 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 09:42:49' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.2ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/api/v1/sessions_controller.rb:26:in `destroy'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (59.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (131.4ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 17:43:51 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$g4wD/nNmaS9Lc2Yaw5CmXuZEQuer8HIKGlhJjPI45TwDgi4Ni60aC', `updated_at` = '2015-06-05 09:43:52' WHERE `users`.`id` = 1
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 150ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 17:43:54 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 09:43:55' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2015-06-05 17:46:11 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$cpjMnonmk0WZiww7FWw94elGCexcJivOmp56mrNfhiJJ/m0MS/IRy', `updated_at` = '2015-06-05 09:46:11' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 152ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2015-06-05 17:46:15 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 09:46:15' WHERE `users`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2015-06-05 17:48:20 +0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"wukun@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"wukun@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'wukun@biulove.com' LIMIT 1
+wukun@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$8sOkcMbdHHOhnhTc4pXUUer/reDsVCvc0JsR3oXTIoMXEmuzP0RDO', `updated_at` = '2015-06-05 09:48:20' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 157ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/api/v1/logout" for 127.0.0.1 at 2015-06-05 17:48:23 +0800
+Processing by Api::V1::SessionsController#destroy as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-05 09:48:23' WHERE `users`.`id` = 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateZodiacs (20150605102305)
+  [1m[35m (40.5ms)[0m  CREATE TABLE `zodiacs` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150605102305')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.6ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `zodiacs`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `zodiacs`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Aries', '2015-06-05 11:40:36', '2015-06-05 11:40:36')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Taurus', '2015-06-05 11:40:36', '2015-06-05 11:40:36')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Gemini', '2015-06-05 11:40:36', '2015-06-05 11:40:36')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Cancer', '2015-06-05 11:40:36', '2015-06-05 11:40:36')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Leo', '2015-06-05 11:40:36', '2015-06-05 11:40:36')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Virgo', '2015-06-05 11:40:36', '2015-06-05 11:40:36')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Libra', '2015-06-05 11:40:36', '2015-06-05 11:40:36')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Scorpio', '2015-06-05 11:40:36', '2015-06-05 11:40:36')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Sagittarius', '2015-06-05 11:40:36', '2015-06-05 11:40:36')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Capricorn', '2015-06-05 11:40:36', '2015-06-05 11:40:36')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Aquarius', '2015-06-05 11:40:36', '2015-06-05 11:40:36')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `zodiacs` (`name`, `created_at`, `updated_at`) VALUES ('Pisces', '2015-06-05 11:40:36', '2015-06-05 11:40:36')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `zodiacs`[0m
+  [1m[35mZodiac Load (0.4ms)[0m  SELECT `zodiacs`.* FROM `zodiacs`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStyles (20150605114429)
+  [1m[35m (40.8ms)[0m  CREATE TABLE `styles` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `gender` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150605114429')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `zodiacs`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `styles`[0m
+  [1m[36mStyle Load (0.5ms)[0m  [1mSELECT `styles`.* FROM `styles`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `zodiacs`
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `styles`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Rich', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('GFS', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('DS', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Talent', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Soprt', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Fashion', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('BigBoy', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Common', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('All', 1, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Godness', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('BFM', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('DS', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Talent', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Soprt', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Sexy', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('LovelyGirl', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('BusinessWoman', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('All', 0, '2015-06-05 12:00:39', '2015-06-05 12:00:39')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mStyle Load (0.4ms)[0m  [1mSELECT `styles`.* FROM `styles`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (1.4ms)[0m  ALTER TABLE `prifile` ADD `gender` int(11)
+Mysql2::Error: Table 'biuserver_development.prifile' doesn't exist: ALTER TABLE `prifile` ADD `gender` int(11)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (0.5ms)[0m  ALTER TABLE `profile` ADD `gender` int(11)
+Mysql2::Error: Table 'biuserver_development.profile' doesn't exist: ALTER TABLE `profile` ADD `gender` int(11)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (67.0ms)[0m  ALTER TABLE `profiles` ADD `gender` int(11)
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE `profiles` ADD `zodiac` references[0m
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'references' at line 1: ALTER TABLE `profiles` ADD `zodiac` references
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (0.6ms)[0m  ALTER TABLE `profiles` ADD `gender` int(11)
+Mysql2::Error: Duplicate column name 'gender': ALTER TABLE `profiles` ADD `gender` int(11)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateStyles (20150605114429)
+  [1m[36m (3.1ms)[0m  [1mDROP TABLE `styles`[0m
+  [1m[35mSQL (5.1ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20150605114429'
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `profiles`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `zodiacs`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateStyles (20150605114429)
+  [1m[35m (39.8ms)[0m  CREATE TABLE `styles` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `gender` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150605114429')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (22.6ms)[0m  ALTER TABLE `profiles` ADD `gender` int(11)
+  [1m[36m (30.9ms)[0m  [1mALTER TABLE `profiles` ADD `zodiac_id` int(11)[0m
+  [1m[35m (46.6ms)[0m  CREATE  INDEX `index_profiles_on_zodiac_id`  ON `profiles` (`zodiac_id`) 
+  [1m[36m (18.5ms)[0m  [1mALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_2a7a0f9c5a`
+FOREIGN KEY (`zodiac_id`)
+  REFERENCES `zodiac` (`id`)
+[0m
+Mysql2::Error: Cannot add foreign key constraint: ALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_2a7a0f9c5a`
+FOREIGN KEY (`zodiac_id`)
+  REFERENCES `zodiac` (`id`)
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (67.1ms)[0m  ALTER TABLE `profiles` ADD `gender` int(11)
+  [1m[36m (54.0ms)[0m  [1mALTER TABLE `profiles` ADD `zodiac_id` int(11)[0m
+  [1m[35m (31.5ms)[0m  CREATE  INDEX `index_profiles_on_zodiac_id`  ON `profiles` (`zodiac_id`) 
+  [1m[36m (22.6ms)[0m  [1mALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_2a7a0f9c5a`
+FOREIGN KEY (`zodiac_id`)
+  REFERENCES `zodiacs` (`id`)
+[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE `profiels` ADD `style_id` int(11)
+Mysql2::Error: Table 'biuserver_development.profiels' doesn't exist: ALTER TABLE `profiels` ADD `style_id` int(11)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (71.3ms)[0m  ALTER TABLE `profiles` ADD `gender` int(11)
+  [1m[36m (31.0ms)[0m  [1mALTER TABLE `profiles` ADD `zodiac_id` int(11)[0m
+  [1m[35m (40.3ms)[0m  CREATE  INDEX `index_profiles_on_zodiac_id`  ON `profiles` (`zodiac_id`) 
+  [1m[36m (42.2ms)[0m  [1mALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_2a7a0f9c5a`
+FOREIGN KEY (`zodiac_id`)
+  REFERENCES `zodiacs` (`id`)
+[0m
+  [1m[35m (41.3ms)[0m  ALTER TABLE `profiles` ADD `style_id` int(11)
+  [1m[36m (25.4ms)[0m  [1mCREATE  INDEX `index_profiles_on_style_id`  ON `profiles` (`style_id`) [0m
+  [1m[35m (24.8ms)[0m  ALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_4eaf93d26d`
+FOREIGN KEY (`style_id`)
+  REFERENCES `style` (`id`)
+
+Mysql2::Error: Cannot add foreign key constraint: ALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_4eaf93d26d`
+FOREIGN KEY (`style_id`)
+  REFERENCES `style` (`id`)
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddColumeToProfile (20150605121947)
+  [1m[35m (59.6ms)[0m  ALTER TABLE `profiles` ADD `gender` int(11)
+  [1m[36m (43.7ms)[0m  [1mALTER TABLE `profiles` ADD `zodiac_id` int(11)[0m
+  [1m[35m (26.8ms)[0m  CREATE  INDEX `index_profiles_on_zodiac_id`  ON `profiles` (`zodiac_id`) 
+  [1m[36m (30.2ms)[0m  [1mALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_2a7a0f9c5a`
+FOREIGN KEY (`zodiac_id`)
+  REFERENCES `zodiacs` (`id`)
+[0m
+  [1m[35m (29.6ms)[0m  ALTER TABLE `profiles` ADD `style_id` int(11)
+  [1m[36m (31.1ms)[0m  [1mCREATE  INDEX `index_profiles_on_style_id`  ON `profiles` (`style_id`) [0m
+  [1m[35m (17.6ms)[0m  ALTER TABLE `profiles` ADD CONSTRAINT `fk_rails_4eaf93d26d`
+FOREIGN KEY (`style_id`)
+  REFERENCES `styles` (`id`)
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150605121947')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`

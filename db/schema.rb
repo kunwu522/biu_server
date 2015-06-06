@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604082021) do
+ActiveRecord::Schema.define(version: 20150605121947) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.date     "birthday"
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "gender",     limit: 4
+    t.integer  "zodiac_id",  limit: 4
+    t.integer  "style_id",   limit: 4
+  end
+
+  add_index "profiles", ["style_id"], name: "index_profiles_on_style_id", using: :btree
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+  add_index "profiles", ["zodiac_id"], name: "index_profiles_on_zodiac_id", using: :btree
+
+  create_table "styles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "gender",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        limit: 255
@@ -24,4 +45,13 @@ ActiveRecord::Schema.define(version: 20150604082021) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  create_table "zodiacs", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_foreign_key "profiles", "styles"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "profiles", "zodiacs"
 end

@@ -1,4 +1,4 @@
-class Api::V1::UsersController < Api::V1::BaseController
+class Api::V1::UsersController < ApplicationController
     
     def show
         @user = User.find(params[:id])
@@ -25,6 +25,15 @@ class Api::V1::UsersController < Api::V1::BaseController
     def search
         @user = User.find_by(email: params[:email].downcase)
         respond_with(@user)
+    end
+    
+    def update
+        user = User.find(params[:id])
+        if user.update_attribute(user_params)
+            response_with(user)
+        else
+            render json: user.errors, status: :unprocessable_entity
+        end
     end
     
     private

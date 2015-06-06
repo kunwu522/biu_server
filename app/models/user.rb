@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     attr_accessor :remember_token
+    has_one :profile, :class_name => "Profile", :foreign_key => "profile_id"
     
     before_save { self.email = self.email.downcase }
     
