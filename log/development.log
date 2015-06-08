@@ -6196,3 +6196,1656 @@ test09@biulove.com log in...
   [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$1BXS4CquE2mBfDARtLimnusCBYtCUvr4jz.ruB8LJ97Glj.8bmG9O', `updated_at` = '2015-06-07 16:45:21' WHERE `users`.`id` = 13
   [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
 Completed 201 Created in 129ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.8ms)[0m  SELECT COUNT(*) FROM `zodiacs`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `styles`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Rich', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('GFS', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('DS', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Talent', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Soprt', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Fashion', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('BigBoy', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Common', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('All', 1, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Godness', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('BFM', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('DS', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Talent', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Soprt', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('Sexy', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('LovelyGirl', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('BusinessWoman', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `styles` (`name`, `gender`, `created_at`, `updated_at`) VALUES ('All', 0, '2015-06-08 05:50:42', '2015-06-08 05:50:42')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started POST "/api/v1/users.json" for 127.0.0.1 at 2015-06-08 13:51:14 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"username"=>"test01", "email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"test01", "email"=>"Test01@biulove.com"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'Test01@biulove.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('test01', 'test01@biulove.com', '$2a$10$mXlwY7qzob3ntz2bvtroW.mJUUV/TfYaV7v5FhPIfKJDEqj0iCixa', '2015-06-08 05:51:14', '2015-06-08 05:51:14')
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 115ms (Views: 0.6ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 13:55:47 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$iwCghNWDvGFqJtmHGnNe3u/.P/M3tIJYMaCUX5M4zfn2vL/7DNcuy', `updated_at` = '2015-06-08 05:55:47' WHERE `users`.`id` = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 179ms (Views: 2.5ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 13:57:03 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$BQU5Vv67xtuqcb.4VnRq.usOXf8O.WjOB1L2eI0eNR7tFHc7Irr1q', `updated_at` = '2015-06-08 05:57:03' WHERE `users`.`id` = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 154ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 13:57:49 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$n4Nf/2FKTiqp4WlIdr2uSu/LiFCysT0lg/15tsFl4U7qeNTT5kYQa', `updated_at` = '2015-06-08 05:57:49' WHERE `users`.`id` = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 148ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 13:58:17 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$PRQwOxqjvDGubW2aLQAfzuuSgn3PxkcDfgjxPZj4PEu6gsi0TppxO', `updated_at` = '2015-06-08 05:58:17' WHERE `users`.`id` = 3
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 151ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:44:31 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$dqtjlMNFCf4BXyK3/gx9POq0m9wwwSky.0LHvwZt1rt5wMr/6Xt4q', `updated_at` = '2015-06-08 08:44:32' WHERE `users`.`id` = 3
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 208ms (Views: 2.1ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:50:19 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$Yww67shpEgLGCW.9dY51buZz6p2zO3W3n5W4Pfrmhl.SVCDb0SPTm', `updated_at` = '2015-06-08 08:50:19' WHERE `users`.`id` = 3
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 143ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:53:24 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$8lsZfGM7aBI..PT/K8pCSuS2wv7HYp4DtpSoQexf9AeBuyOil6GQm', `updated_at` = '2015-06-08 08:53:24' WHERE `users`.`id` = 3
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 152ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:55:30 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$vMzdkmXWQXN0S5qShVaQu.6r5L7z/gaaU93yybUVqaF.R5ZUkvMOu', `updated_at` = '2015-06-08 08:55:30' WHERE `users`.`id` = 3
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 156ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:56:24 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$KD1V.xrhoBAgGwbO9VTvOusujbY1Zz2X9F19RT1/8J8AaGQgJ.1HK', `updated_at` = '2015-06-08 08:56:25' WHERE `users`.`id` = 3
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 153ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:58:23 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$LqctmfvxNPEaSkTxLqxfeO167tLNwdX6XdBzbJ0Shg5TeYuEB4xPW', `updated_at` = '2015-06-08 08:58:23' WHERE `users`.`id` = 3
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 152ms (Views: 0.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:59:27 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$Bdjts26rkAIAvvOIP8Z5FeieLc2sscamzqRWIzcyAV4MwoP.pYfB.', `updated_at` = '2015-06-08 08:59:27' WHERE `users`.`id` = 3
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 144ms (Views: 0.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 16:59:51 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$EHFCwZ67aMwAcynLYFg/D.TwMFjJ7t1ciwl/PbNo1GmXhIcbw3BqG', `updated_at` = '2015-06-08 08:59:51' WHERE `users`.`id` = 3
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 147ms (Views: 0.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:00:23 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$Z355eU9Z1yqlvQDYjDgm6ukLdaMCNVI57Ty.9MFtw9SS1uTM6xGFm', `updated_at` = '2015-06-08 09:00:23' WHERE `users`.`id` = 3
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 144ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:03:36 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$YpeCcJNjQKp422x7ZUUC9O8yQrJXXW.bAM9XqeAop.3pNhU6wHnqW', `updated_at` = '2015-06-08 09:03:36' WHERE `users`.`id` = 3
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 150ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:04:18 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$BV0FGXrnGNnJouyjpbXO4.5K5ojCdwNOpWgzI6zQFUSvVsnd4C1bu', `updated_at` = '2015-06-08 09:04:18' WHERE `users`.`id` = 3
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 141ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:12:49 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$ZosUbGloMNv8cYqVu8ixO.f5go.NqkDwA8I9Qo8UmMEuc2MHI1j0q', `updated_at` = '2015-06-08 09:12:49' WHERE `users`.`id` = 3
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 150ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:20:54 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$6ePXOUT4rfiXJHTTScpER.o.YMxYdz3kzy94IH01wHSF3eyZ0flCy', `updated_at` = '2015-06-08 09:20:54' WHERE `users`.`id` = 3
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 158ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:22:26 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$Gb1HQTvtUERr1JHrwDy61eRkNVQ8WBzXRcDFlRNzi1RitfH87eV.a', `updated_at` = '2015-06-08 09:22:27' WHERE `users`.`id` = 3
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 145ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:25:55 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$fvEZOIqOm/JNL04ElKbdJuWXsWsgdk4/KAhx.JiEQnD3xpmvkxDb6', `updated_at` = '2015-06-08 09:25:55' WHERE `users`.`id` = 3
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 146ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:26:56 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$ssv2rLRzM6SqxcAZYmF2O.XHF7mZnQ/M7u3ohZFtkma3mxcpWxF1y', `updated_at` = '2015-06-08 09:26:56' WHERE `users`.`id` = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 152ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:28:22 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$6mm936iJuP2dNmLJt258f.K7IG7.c/UiuY7KF9dqq0XR9SS8XAL0.', `updated_at` = '2015-06-08 09:28:22' WHERE `users`.`id` = 3
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 149ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/v1/login.json" for 127.0.0.1 at 2015-06-08 17:29:21 +0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"Test01@biulove.com", "password"=>"[FILTERED]", "session"=>{"email"=>"Test01@biulove.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test01@biulove.com' LIMIT 1
+test01@biulove.com log in...
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = '$2a$10$ITkEBGqVkBW3YF6/rfDAGupHWWxPObpxCff9jwEYW70WvUuB0QHjq', `updated_at` = '2015-06-08 09:29:22' WHERE `users`.`id` = 3
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 153ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/api/v1/logout.json" for 127.0.0.1 at 2015-06-08 17:29:25 +0800
+Processing by Api::V1::SessionsController#destroy as JSON
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_digest` = NULL, `updated_at` = '2015-06-08 09:29:25' WHERE `users`.`id` = 3
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSexualities (20150608094028)
+  [1m[35m (38.9ms)[0m  CREATE TABLE `sexualities` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150608094028')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'sexualities'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `sexualities`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `zodiacs`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `styles`[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `sexualities`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO `sexualities` (`name`, `created_at`, `updated_at`) VALUES ('Man', '2015-06-08 09:42:57', '2015-06-08 09:42:57')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `sexualities` (`name`, `created_at`, `updated_at`) VALUES ('Woman', '2015-06-08 09:42:57', '2015-06-08 09:42:57')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `sexualities` (`name`, `created_at`, `updated_at`) VALUES ('P', '2015-06-08 09:42:57', '2015-06-08 09:42:57')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `sexualities` (`name`, `created_at`, `updated_at`) VALUES ('T', '2015-06-08 09:42:57', '2015-06-08 09:42:57')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `sexualities` (`name`, `created_at`, `updated_at`) VALUES ('1', '2015-06-08 09:42:57', '2015-06-08 09:42:57')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `sexualities` (`name`, `created_at`, `updated_at`) VALUES ('0', '2015-06-08 09:42:57', '2015-06-08 09:42:57')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePartners (20150608094815)
+  [1m[35m (26.4ms)[0m  CREATE TABLE `partners` (`id` int(11) auto_increment PRIMARY KEY, `min_age` int(11), `max_age` int(11), `user_id` int(11), `sexuality_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_partners_on_user_id`  (`user_id`) ,  INDEX `index_partners_on_sexuality_id`  (`sexuality_id`) ) ENGINE=InnoDB
+  [1m[36m (18.1ms)[0m  [1mALTER TABLE `partners` ADD CONSTRAINT `fk_rails_19700d5164`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (19.1ms)[0m  ALTER TABLE `partners` ADD CONSTRAINT `fk_rails_3ed3282d09`
+FOREIGN KEY (`sexuality_id`)
+  REFERENCES `sexualities` (`id`)
+
+  [1m[36m (15.3ms)[0m  [1mCREATE TABLE `partners_zodiacs` (`partner_id` int(11), `zodiac_id` int(11),  INDEX `index_partners_zodiacs_on_partner_id`  (`partner_id`) ,  INDEX `index_partners_zodiacs_on_zodiac_id`  (`zodiac_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (10.8ms)[0m  CREATE TABLE `partners_styles` (`partner_id` int(11), `style_id` int(11),  INDEX `index_partners_styles_on_partner_id`  (`partner_id`) ,  INDEX `index_partners_styles_on_style_id`  (`style_id`) ) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150608094815')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `partners`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners_styles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `partners_styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners_zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `partners_zodiacs`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'sexualities'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `sexualities`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:21:06 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (uninitialized constant Api::V1::PartnersController):
+  activesupport (4.2.1) lib/active_support/inflector/methods.rb:263:in `const_get'
+  activesupport (4.2.1) lib/active_support/inflector/methods.rb:263:in `block in constantize'
+  activesupport (4.2.1) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.1) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.1) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:70:in `controller_reference'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:60:in `controller'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:39:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  apipie-rails (0.3.4) lib/apipie/static_dispatcher.rb:65:in `call'
+  apipie-rails (0.3.4) lib/apipie/extractor/recorder.rb:132:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (126.6ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fade5776768 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fade5776358 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fade576f300 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:26:59 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            render :json partner.errors status: :500
+                                ^
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END):
+  app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.9ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:28:12 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            render :plain "create partner failed." status: :500
+                           ^
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            render :plain "create partner failed." status: :500
+                                                         ^):
+  app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.7ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:30:09 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            render plain: "create partner failed." status: :500
+                                                         ^):
+  app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.3ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:30:52 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            render plain: "create partner failed." status: 500
+                                                         ^):
+  app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:31:19 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+..."create partner failed." status: :internal_server_error
+...                               ^):
+  app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/api/v1/partners_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:31:54 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end):
+  app/controllers/api/v1/partners_controller.rb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.4ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:33:52 +0800
+
+ActionController::RoutingError (Couldn't find Api::V1::PartnersHelper, expected it to be defined in helpers/api/v1/partners_helper.rb):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/api/v1/partners_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (120.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:34:23 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"1", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>{"zodiac_id"=>"11"}, "styles"=>{"style_id"=>"16"}, "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"1", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (1, 2, 22, 28, '2015-06-08 10:34:23', '2015-06-08 10:34:23')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+1 saved successful.
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:44:12 +0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+"user_id":"2",
+"sexuality_id":"2",
+"min_age":"22",
+"max_age":"28",
+"zodiacs":{"7","11"},
+"styles":{"11","13","16"}
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{
+"user_id":"2",
+"sexuality_id":"2",
+"min_age":"22",
+"max_age":"28",
+"zodiacs":{"7","11"},
+"styles":{"11","13","16"}
+}'):
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.7ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:47:11 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>{"1"=>"7", "2"=>"11"}, "styles"=>{"1"=>"11", "2"=>"13", "3"=>"16"}, "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 10:47:11', '2015-06-08 10:47:11')
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+2 saved successful.
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:55:59 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>{"1"=>"7", "2"=>"11"}, "styles"=>{"1"=>"11", "2"=>"13", "3"=>"16"}, "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 10:55:59', '2015-06-08 10:55:59')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+3 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 18:59:53 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>{"1"=>"7", "2"=>"11"}, "styles"=>{"1"=>"11", "2"=>"13", "3"=>"16"}, "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 10:59:53', '2015-06-08 10:59:53')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+4 saved successful.
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:01:31 +0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+"user_id":"2",
+"sexuality_id":"2",
+"min_age":"22",
+"max_age":"28",
+"zodiacs":{{"zodiac_id":"7"},{"zodiac_id":"11"}},
+"styles":{{"style_id":"11"},{"style_id":"13"},{"style_id":"16"}}
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{
+"user_id":"2",
+"sexuality_id":"2",
+"min_age":"22",
+"max_age":"28",
+"zodiacs":{{"zodiac_id":"7"},{"zodiac_id":"11"}},
+"styles":{{"style_id":"11"},{"style_id":"13"},{"style_id":"16"}}
+}'):
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fe7b8b8ca70 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe7b8b8c520 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe7b8b85360 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:05:25 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:05:25', '2015-06-08 12:05:25')[0m
+  [1m[35m (6.3ms)[0m  COMMIT
+5 saved successful.
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:08:02 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:08:02', '2015-06-08 12:08:02')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+6 saved successful.
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:13:37 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:13:37', '2015-06-08 12:13:37')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+7 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:19:47 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:19:47', '2015-06-08 12:19:47')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+8 saved successful.
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:21:27 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:21:28', '2015-06-08 12:21:28')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+9 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:36:43 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:36:43', '2015-06-08 12:36:43')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+10 saved successful.
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:38:39 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:38:39', '2015-06-08 12:38:39')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+11 saved successful.
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:39:46 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:39:46', '2015-06-08 12:39:46')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+12 saved successful.
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:40:00 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:40:01', '2015-06-08 12:40:01')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+13 saved successful.
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreatePartners (20150608094815)
+  [1m[36m (0.9ms)[0m  [1mDROP TABLE `styles_partners`[0m
+Mysql2::Error: Unknown table 'biuserver_development.styles_partners': DROP TABLE `styles_partners`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreatePartners (20150608094815)
+  [1m[36m (2.8ms)[0m  [1mDROP TABLE `partners_styles`[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE `partners_zodiacs`
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE `partners`[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20150608094815'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+
+  [1m[36m (0.3ms)[0m  [1mSHOW CREATE TABLE `profiles`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'sexualities'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `sexualities`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `styles`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `zodiacs`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePartners (20150608094815)
+  [1m[35m (19.0ms)[0m  CREATE TABLE `partners` (`id` int(11) auto_increment PRIMARY KEY, `min_age` int(11), `max_age` int(11), `user_id` int(11), `sexuality_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_partners_on_user_id`  (`user_id`) ,  INDEX `index_partners_on_sexuality_id`  (`sexuality_id`) ) ENGINE=InnoDB
+  [1m[36m (15.1ms)[0m  [1mALTER TABLE `partners` ADD CONSTRAINT `fk_rails_19700d5164`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (24.2ms)[0m  ALTER TABLE `partners` ADD CONSTRAINT `fk_rails_3ed3282d09`
+FOREIGN KEY (`sexuality_id`)
+  REFERENCES `sexualities` (`id`)
+
+  [1m[36m (14.7ms)[0m  [1mCREATE TABLE `zodiacs_partners` (`partner_id` int(11), `zodiac_id` int(11),  INDEX `index_zodiacs_partners_on_partner_id`  (`partner_id`) ,  INDEX `index_zodiacs_partners_on_zodiac_id`  (`zodiac_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE `styles_partners` (`partner_id` int(11), `style_id` int(11),  INDEX `index_styles_partners_on_partner_id`  (`partner_id`) ,  INDEX `index_styles_partners_on_style_id`  (`style_id`) ) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150608094815')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `partners`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'sexualities'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `sexualities`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `styles`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles_partners'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `styles_partners`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs_partners'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs_partners`
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:51:34 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:51:34', '2015-06-08 12:51:34')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+1 saved successful.
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 20:52:05 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 12:52:05', '2015-06-08 12:52:05')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+2 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreatePartners (20150608094815)
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE `styles_partners`[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE `zodiacs_partners`
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE `partners`[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20150608094815'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+
+  [1m[36m (0.4ms)[0m  [1mSHOW CREATE TABLE `profiles`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'sexualities'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `sexualities`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `styles`[0m
+  [1m[35m (0.1ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.1ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `zodiacs`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePartners (20150608094815)
+  [1m[35m (25.8ms)[0m  CREATE TABLE `partners` (`id` int(11) auto_increment PRIMARY KEY, `min_age` int(11), `max_age` int(11), `user_id` int(11), `sexuality_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_partners_on_user_id`  (`user_id`) ,  INDEX `index_partners_on_sexuality_id`  (`sexuality_id`) ) ENGINE=InnoDB
+  [1m[36m (14.2ms)[0m  [1mALTER TABLE `partners` ADD CONSTRAINT `fk_rails_19700d5164`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (17.1ms)[0m  ALTER TABLE `partners` ADD CONSTRAINT `fk_rails_3ed3282d09`
+FOREIGN KEY (`sexuality_id`)
+  REFERENCES `sexualities` (`id`)
+
+  [1m[36m (15.3ms)[0m  [1mCREATE TABLE `partners_zodiacs` (`partner_id` int(11), `zodiac_id` int(11),  INDEX `index_partners_zodiacs_on_partner_id`  (`partner_id`) ,  INDEX `index_partners_zodiacs_on_zodiac_id`  (`zodiac_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE `partners_styles` (`partner_id` int(11), `style_id` int(11),  INDEX `index_partners_styles_on_partner_id`  (`partner_id`) ,  INDEX `index_partners_styles_on_style_id`  (`style_id`) ) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150608094815')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `partners`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners_styles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `partners_styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'partners_zodiacs'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `partners_zodiacs`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'sexualities'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `sexualities`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'styles'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `styles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'BiuServer_development'
+  AND fk.table_name = 'zodiacs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `zodiacs`
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:01:31 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:01:32', '2015-06-08 13:01:32')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+1 saved successful.
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:03:22 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:03:23', '2015-06-08 13:03:23')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+2 saved successful.
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:04:11 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:04:11', '2015-06-08 13:04:11')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+3 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:08:26 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:08:26', '2015-06-08 13:08:26')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+4 saved successful.
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:10:48 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/controllers/api/v1/partners_controller.rb:16: syntax error, unexpected ':', expecting =>
+..._ids: :zodiac_id}, {:style_ids: :style_id})
+...                               ^):
+  app/controllers/api/v1/partners_controller.rb:16: syntax error, unexpected ':', expecting =>
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.8ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007fb1ad7e5f48 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fb1ad7e5c78 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fb1ad7debf8 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:10:57 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:10:57', '2015-06-08 13:10:57')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+5 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:12:16 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:12:16', '2015-06-08 13:12:16')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+6 saved successful.
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:13:00 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:13:00', '2015-06-08 13:13:00')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+7 saved successful.
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:13:51 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}], "partner"=>{"min_age"=>"22", "max_age"=>"28", "user_id"=>"2", "sexuality_id"=>"2"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:13:51', '2015-06-08 13:13:51')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+8 saved successful.
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:16:40 +0800
+Error occurred while parsing request parameters.
+Contents:
+
+"partner":{
+"user_id":"2",
+"sexuality_id":"2",
+"min_age":"22",
+"max_age":"28",
+"zodiac_ids":[
+{"zodiac_id":"7"}, 
+{"zodiac_id":"11"}
+],
+"style_ids":[
+{"style_id":"11"},
+{"style_id":"13"},
+{"style_id":"16"}
+]
+}
+
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at ':{
+"user_id":"2",
+"sexuality_id":"2",
+"min_age":"22",
+"max_age":"28",
+"zodiac_ids":[
+{"zodiac_id":"7"}, 
+{"zodiac_id":"11"}
+],
+"style_ids":[
+{"style_id":"11"},
+{"style_id":"13"},
+{"style_id":"16"}
+]
+}
+'):
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/tony/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.9ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:16:59 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Unpermitted parameter: zodiac_ids
+Completed 404 Not Found in 31ms (ActiveRecord: 2.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Style without an ID):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.1ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:17:36 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 404 Not Found in 16ms (ActiveRecord: 3.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Zodiac without an ID):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.9ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:19:36 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Unpermitted parameters: zodiac_ids, style_ids
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `partners` (`user_id`, `sexuality_id`, `min_age`, `max_age`, `created_at`, `updated_at`) VALUES (2, 2, 22, 28, '2015-06-08 13:19:36', '2015-06-08 13:19:36')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+9 saved successful.
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:20:01 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 404 Not Found in 22ms (ActiveRecord: 9.0ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Zodiac without an ID):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (81.2ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:20:39 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.5ms)
+
+ActiveRecord::AssociationTypeMismatch (Zodiac(#70128671568060) expected, got ActionController::Parameters(#70128638354880)):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.7ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:24:23 +0800
+
+SyntaxError (/Users/tony/work/Biu/biu_server/app/models/partner.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...lass_name: "Zodiac" foreign_key: "zodiac_id"
+...                               ^):
+  app/models/partner.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:25:00 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.5ms)
+
+ActiveRecord::AssociationTypeMismatch (Zodiac(#70128640808520) expected, got ActionController::Parameters(#70128638354880)):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.3ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:25:34 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+ActiveRecord::AssociationTypeMismatch (Zodiac(#70128640808520) expected, got ActionController::Parameters(#70128638354880)):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.0ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:27:54 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiacs"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "styles"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.7ms)
+
+ActiveRecord::AssociationTypeMismatch (Zodiac(#70128652420600) expected, got ActionController::Parameters(#70128638354880)):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.4ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:29:14 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 404 Not Found in 17ms (ActiveRecord: 3.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Zodiac without an ID):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (77.4ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/api/v1/partners.json" for 127.0.0.1 at 2015-06-08 21:31:36 +0800
+Processing by Api::V1::PartnersController#create as JSON
+  Parameters: {"partner"=>{"user_id"=>"2", "sexuality_id"=>"2", "min_age"=>"22", "max_age"=>"28", "zodiac_ids"=>[{"zodiac_id"=>"7"}, {"zodiac_id"=>"11"}], "style_ids"=>[{"style_id"=>"11"}, {"style_id"=>"13"}, {"style_id"=>"16"}]}}
+Completed 404 Not Found in 17ms (ActiveRecord: 3.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Zodiac without an ID):
+  app/controllers/api/v1/partners_controller.rb:4:in `create'
+
+
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tony/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.8ms)
+Cannot render console with content type application/jsonAllowed content types: [#<Mime::Type:0x007f9032459308 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f9032458fe8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f9032451798 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]

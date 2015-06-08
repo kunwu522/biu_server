@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605121947) do
+ActiveRecord::Schema.define(version: 20150608094815) do
+
+  create_table "partners", force: :cascade do |t|
+    t.integer  "min_age",      limit: 4
+    t.integer  "max_age",      limit: 4
+    t.integer  "user_id",      limit: 4
+    t.integer  "sexuality_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "partners", ["sexuality_id"], name: "index_partners_on_sexuality_id", using: :btree
+  add_index "partners", ["user_id"], name: "index_partners_on_user_id", using: :btree
+
+  create_table "partners_styles", id: false, force: :cascade do |t|
+    t.integer "partner_id", limit: 4
+    t.integer "style_id",   limit: 4
+  end
+
+  add_index "partners_styles", ["partner_id"], name: "index_partners_styles_on_partner_id", using: :btree
+  add_index "partners_styles", ["style_id"], name: "index_partners_styles_on_style_id", using: :btree
+
+  create_table "partners_zodiacs", id: false, force: :cascade do |t|
+    t.integer "partner_id", limit: 4
+    t.integer "zodiac_id",  limit: 4
+  end
+
+  add_index "partners_zodiacs", ["partner_id"], name: "index_partners_zodiacs_on_partner_id", using: :btree
+  add_index "partners_zodiacs", ["zodiac_id"], name: "index_partners_zodiacs_on_zodiac_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.date     "birthday"
@@ -26,6 +54,12 @@ ActiveRecord::Schema.define(version: 20150605121947) do
   add_index "profiles", ["style_id"], name: "index_profiles_on_style_id", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
   add_index "profiles", ["zodiac_id"], name: "index_profiles_on_zodiac_id", using: :btree
+
+  create_table "sexualities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "styles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -51,6 +85,8 @@ ActiveRecord::Schema.define(version: 20150605121947) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "partners", "sexualities"
+  add_foreign_key "partners", "users"
   add_foreign_key "profiles", "styles"
   add_foreign_key "profiles", "users"
   add_foreign_key "profiles", "zodiacs"

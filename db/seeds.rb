@@ -40,3 +40,12 @@ if (Style.count == 0)
     Style.create(name: "BusinessWoman", gender:0)
     Style.create(name: "All", gender:0)
 end
+
+if (Sexuality.count == 0)
+    Sexuality.create(name: "Man")
+    Sexuality.create(name: "Woman")
+    Sexuality.create(name: "P")
+    Sexuality.create(name: "T")
+    Sexuality.create(name: "1")
+    Sexuality.create(name: "0")
+end

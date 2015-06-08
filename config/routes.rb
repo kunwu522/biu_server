@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-  namespace :v1 do
-    get 'sessions/new'
-    end
-  end
-
   apipie
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -69,6 +63,7 @@ Rails.application.routes.draw do
             get 'search', on: :collection
         end
         resources :profiles
+        resources :partners
     end
   end
 end
