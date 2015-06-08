@@ -1,0 +1,9 @@
+json.user do
+    json.id         @user.id
+    json.username   @user.username
+    json.profile_id @user.profile.id
+    json.birthday   @user.profile.birthday
+    json.gender     @user.profile.gender
+    json.zodia      @user.profile.zodia.id
+    json.style      @user.profile.style.id
+end
