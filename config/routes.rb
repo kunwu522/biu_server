@@ -68,6 +68,7 @@ Rails.application.routes.draw do
         resources :users do
             get 'search', on: :collection
         end
+        resources :profiles
     end
   end
 end

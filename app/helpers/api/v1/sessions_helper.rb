@@ -42,4 +42,16 @@ module Api::V1::SessionsHelper
     def logged_in?
         !@current_user.nil?
     end
+    
+    # return 401 if current_uesr is nil
+    def current_user?
+        current_user
+        if logged_in?
+            Rails.logger.debug { "#{current_user.username} logged in." }
+            return true 
+        else
+            Rails.logger.debug { "no current user..." }
+            render plain: "401 authentication failed", status: 401
+        end
+    end
 end

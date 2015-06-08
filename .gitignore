@@ -39,3 +39,5 @@ config/secrets.yml
 log/*
 
 *.log
+
+log/development.log

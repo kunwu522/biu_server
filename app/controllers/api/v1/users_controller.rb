@@ -11,9 +11,8 @@ class Api::V1::UsersController < ApplicationController
         if @user.save
             log_in @user
             user_response = {
-                'id' => @user.id,
+                'user_id' => @user.id,
                 'username' => @user.username,
-                'password' => @user.password_digest,
                 'email' => @user.email
             }
             render json: user_response
