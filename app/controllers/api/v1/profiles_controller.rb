@@ -11,7 +11,7 @@ class Api::V1::ProfilesController < ApplicationController
         if @profile.save
             Rails.logger.debug { "#{@profile.id} save success." }
             response = {
-                'profile_id' => @profile.id,
+                'profile_id' => @profile.id
             }
             render json: response
         else
