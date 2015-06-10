@@ -31,6 +31,11 @@ class Api::V1::ProfilesController < ApplicationController
         end
     end
     
+    def upload
+        profile = Profile.find(params[:id])
+        profile.avator = params[:file]
+    end
+    
     private
     def profile_params
         params.require(:profile).permit(:birthday, :gender, :user_id, :zodiac_id, :style_id)

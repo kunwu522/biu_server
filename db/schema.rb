@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608094815) do
+ActiveRecord::Schema.define(version: 20150609163339) do
 
   create_table "partners", force: :cascade do |t|
     t.integer  "min_age",      limit: 4
@@ -44,11 +44,12 @@ ActiveRecord::Schema.define(version: 20150608094815) do
   create_table "profiles", force: :cascade do |t|
     t.date     "birthday"
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "gender",     limit: 4
     t.integer  "zodiac_id",  limit: 4
     t.integer  "style_id",   limit: 4
+    t.string   "avatar",     limit: 255
   end
 
   add_index "profiles", ["style_id"], name: "index_profiles_on_style_id", using: :btree
