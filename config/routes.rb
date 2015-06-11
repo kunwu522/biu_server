@@ -61,15 +61,18 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  namespace :api do
-    namespace :v1 do
-        post 'login' => 'sessions#create'
-        delete 'logout' => 'sessions#destroy'
-        resources :users do
-            get 'search', on: :collection
-        end
-        resources :profiles
-        resources :partners
+    scope "(:locale)", locale: /en|cn/ do
+          namespace :api do
+            namespace :v1 do
+                post 'login' => 'sessions#create'
+                delete 'logout' => 'sessions#destroy'
+                post 'passcode' => 'passcodes#create'
+                resources :users do
+                    get 'search', on: :collection
+                end
+                resources :profiles
+                resources :partners
+            end
+          end
     end
-  end
 end

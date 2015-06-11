@@ -6,18 +6,17 @@ class Api::V1::UsersController < ApplicationController
     end
     
     def create
-        @user = User.new(username: params[:username], email: params[:email], 
-                        password: params[:password], password_confirmation: params[:password_confirmation])
+        @user = User.new(user_params)
         if @user.save
             log_in @user
             user_response = {
                 'user_id' => @user.id,
                 'username' => @user.username,
-                'email' => @user.email
+                'phone' => @user.phone
             }
             render json: user_response
         else
-            render json: @user.errors, status: :unprocessable_entity
+            render json: @user.errors.full_messages, status: :unprocessable_entity
         end
     end
     
@@ -36,13 +35,12 @@ class Api::V1::UsersController < ApplicationController
     end
     
     private
-  
-        def user_params
-            params.require(:user).permit(:username, :email, :password, :password_confirmation)
-        end
+    def user_params
+        params.require(:user).permit(:username, :phone, :password, :password_confirmation)
+    end
 
-        def query_params
-            params.permit(:user_id, :username, :email, :password)
-        end
+    def query_params
+        params.permit(:user_id, :username, :email, :password)
+    end
   
 end

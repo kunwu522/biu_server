@@ -5,4 +5,11 @@ class ApplicationController < ActionController::Base
   include Api::V1::SessionsHelper
   
   respond_to :json
+  
+  before_action :set_locale
+  
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+  
 end

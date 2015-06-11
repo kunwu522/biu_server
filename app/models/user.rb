@@ -3,15 +3,12 @@ class User < ActiveRecord::Base
     has_one :profile
     has_one :partner
     
-    before_save { self.email = self.email.downcase }
-    
     validates :username, presence: true, length: { maximum: 50 }
-    
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, presence: true, length: { maximum: 255 }, 
-                        format: { with: VALID_EMAIL_REGEX },
-                        uniqueness: { case_sensitive: false }
 
+    VALID_PHONE_REGEX = /[0-9]{11}/
+    validates :phone, presence: true, length: {minimum: 11, maximum: 11},
+                          uniqueness: true, format: { with: VALID_PHONE_REGEX }
+    
     has_secure_password
     validates :password, length: { minimum: 8 }
     

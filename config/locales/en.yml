@@ -21,3 +21,4 @@
 
 en:
   hello: "Hello world"
+  phone_number_password_not_match: "phone and password not match"
