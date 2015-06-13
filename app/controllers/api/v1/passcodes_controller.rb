@@ -10,7 +10,16 @@ class Api::V1::PasscodesController < ApplicationController
       messagexsend.add_to(params[:phone_number])
       messagexsend.set_project("yy0u4")
       messagexsend.add_var("passcode", params[:passcode][:code])
-      puts messagexsend.message_xsend()
+      response = messagexsend.message_xsend()
+      puts response
+      result = JSON.parse(response)
+      puts "result: " << result["status"]
+      if (result["status"] == "success")
+          render nothing: true, status: 200, content_type: "application/json"
+      else
+          error = {"error_message" => I18n.t('send_passcode_failed')}
+          render json: error, status: 500
+      end
   end
   
   private

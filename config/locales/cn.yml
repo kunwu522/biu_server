@@ -1,2 +1,4 @@
 cn:
+    phone_exist: "手机号已经注册，请登录"
     phone_number_password_not_match: "手机与密码不匹配"
+    send_passcode_failed: "发送验证码失败，请稍后再试"

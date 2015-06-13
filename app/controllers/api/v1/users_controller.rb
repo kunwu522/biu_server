@@ -6,6 +6,13 @@ class Api::V1::UsersController < ApplicationController
     end
     
     def create
+        user = User.find_by(phone: params[:user][:phone])
+        if user
+            puts "#{user.phone} is exist"
+            error = {"error_message" => I18n.t('phone_exist')}
+            render json: error, status: 500
+            return;
+        end
         @user = User.new(user_params)
         if @user.save
             log_in @user
@@ -36,7 +43,7 @@ class Api::V1::UsersController < ApplicationController
     
     private
     def user_params
-        params.require(:user).permit(:username, :phone, :password, :password_confirmation)
+        params.require(:user).permit(:username, :phone, :password, :password_confirmation, :email)
     end
 
     def query_params

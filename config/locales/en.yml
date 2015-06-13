@@ -21,4 +21,6 @@
 
 en:
   hello: "Hello world"
+  phone_exist: "phone number already signup, please login"
   phone_number_password_not_match: "phone and password not match"
+  send_passcode_failed: "sending passcode failed, please try again later"
