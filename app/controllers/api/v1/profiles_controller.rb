@@ -1,5 +1,5 @@
 class Api::V1::ProfilesController < ApplicationController
-    before_action :current_user?
+    # before_action :current_user?
     
     def show
         @profile = Profile.find(params[:id])
@@ -33,7 +33,16 @@ class Api::V1::ProfilesController < ApplicationController
     
     def upload
         profile = Profile.find(params[:id])
-        profile.avator = params[:file]
+        puts "file: #{params[:avatar]}"
+        if profile.update_attribute(:avatar, params[:avatar])
+            puts "avatar url: #{profile.avatar.url}"
+            puts "avatar path: #{profile.avatar.current_path}"
+            response = {"url" => profile.avatar.url}
+            render json: response, status: 200
+        else
+            error = {"error_message" => I18n.t('upload_failed')}
+            render json: error, status: 500
+        end
     end
     
     private
