@@ -36,6 +36,7 @@ gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-rbenv', '~> 2.0'
 gem 'capistrano-rails', group: :development
 gem 'capistrano-passenger', group: :development
+gem 'passenger'
 
 # User CarrierWave
 gem 'carrierwave'
