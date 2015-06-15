@@ -21,29 +21,38 @@ class Api::V1::SessionsController < ApplicationController
     
     private
     def build_respones
-        zodiac_ids = [];
-        @user.partner.zodiacs.each do |zodiac|
-            zodiac_ids << zodiac.id
+        profile = nil
+        if @user.profile
+            profile = {"profile_id" => @user.profile.id,
+                           "gender" => @user.profile.gender,
+                         "birthday" => @user.profile.birthday,
+                           "zodiac" => @user.profile.zodiac.id,
+                            "style" => @user.profile.style.id,
+                           "avatar" => @user.profile.avatar.url}
         end
         
-        style_ids = [];
-        @user.partner.styles.each do |style|
-            style_ids << style.id
+        partner = nil
+        if @user.partner
+            zodiac_ids = [];
+            @user.partner.zodiacs.each do |zodiac|
+                zodiac_ids << zodiac.id
+            end
+            style_ids = [];
+            @user.partner.styles.each do |style|
+                style_ids << style.id
+            end
+            partner = {"partner_id" => @user.partner.id,
+                        "sexuality" => @user.partner.sexuality.id,
+                          "min_age" => @user.partner.min_age,
+                          "max_age" => @user.partner.max_age,
+                       "zodiac_ids" => zodiac_ids,
+                        "style_ids" => style_ids}
         end
         
         user = {"user_id" =>  @user.id, 
                 "username" => @user.username, 
-                "profile" => {"profile_id" => @user.profile.id,
-                            "gender" => @user.profile.gender,
-                            "birthday" => @user.profile.birthday,
-                            "zodiac" => @user.profile.zodiac.id,
-                            "style" => @user.profile.style.id},
-                "partner" => {"partner_id" => @user.partner.id,
-                            "sexuality" => @user.partner.sexuality.id,
-                            "min_age" => @user.partner.min_age,
-                            "max_age" => @user.partner.max_age,
-                            "zodiac_ids" => zodiac_ids,
-                            "style_ids" => style_ids}}
+                "profile" => profile,
+                "partner" => partner}
         response = {"user" => user}
     end
 end
