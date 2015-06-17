@@ -45,6 +45,16 @@ class Api::V1::ProfilesController < ApplicationController
         end
     end
     
+    def download
+        profile = Profile.find(params[:id])
+        if profile && profile.avatar
+            send_file profile.avatar.url, type: 'image/jpg', disposition: 'inline'
+        else
+            render json: "", status: 404
+        end
+        
+    end
+    
     private
     def profile_params
         params.require(:profile).permit(:birthday, :gender, :user_id, :zodiac_id, :style_id)

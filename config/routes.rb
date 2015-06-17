@@ -68,6 +68,7 @@ Rails.application.routes.draw do
                 delete 'logout' => 'sessions#destroy'
                 post 'passcode' => 'passcodes#create'
                 post 'avatar/:id' => 'profiles#upload'
+                get 'avatar/:id' => 'profiles#download'
                 resources :users do
                     get 'search', on: :collection
                 end
