@@ -34,10 +34,12 @@ class Api::V1::ProfilesController < ApplicationController
     def upload
         profile = Profile.find(params[:id])
         puts "file: #{params[:avatar]}"
-        if profile.update_attribute(:avatar, params[:avatar])
-            puts "avatar url: #{profile.avatar.url}"
-            puts "avatar path: #{profile.avatar.current_path}"
-            response = {"url" => profile.avatar.url}
+        attribute = params[:shape] == 'rect' ? 'avatar_rectangle' : 'avatar_cycle'
+        if profile.update_attribute(attribute, params[:avatar])
+            puts "rectangle avatar url: #{profile.avatar_rectangle.url}"
+            puts "cycle avatar url: #{profile.avatar_cycle.url}"
+            response = {"rectangle_url" => profile.avatar_rectangle.url,
+                        "cycle_url" => profile.avatar_cycle.url}
             render json: response, status: 200
         else
             error = {"error_message" => I18n.t('upload_failed')}
@@ -47,12 +49,29 @@ class Api::V1::ProfilesController < ApplicationController
     
     def download
         profile = Profile.find(params[:id])
-        if profile && profile.avatar
-            send_file profile.avatar.url, type: 'image/jpg', disposition: 'inline'
-        else
+        if !profile
             render json: "", status: 404
+            return
         end
         
+        if params[:shape] == 'rect'
+            if profile.avatar_rectangle
+                send_file profile.avatar_rectangle.url, type: 'image/jpg', disposition: 'inline'
+            else
+                render json: "", status: 404
+            end
+            return
+        end
+        
+        if params[:shape] == 'cycle'
+            if profile.avatar_cycle
+                send_file profile.avatar_cycle.url, type: 'image/jpg', disposition: 'inline'
+            else
+                render json: "", status: 404
+            end
+            return
+        end
+        render json: "", status: 404
     end
     
     private

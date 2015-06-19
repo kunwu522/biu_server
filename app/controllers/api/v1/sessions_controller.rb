@@ -27,8 +27,7 @@ class Api::V1::SessionsController < ApplicationController
                            "gender" => @user.profile.gender,
                          "birthday" => @user.profile.birthday,
                            "zodiac" => @user.profile.zodiac.id,
-                            "style" => @user.profile.style.id,
-                           "avatar" => @user.profile.avatar.url}
+                            "style" => @user.profile.style.id}
         end
         
         partner = nil
