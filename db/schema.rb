@@ -11,19 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618072517) do
+ActiveRecord::Schema.define(version: 20150625085333) do
 
   create_table "partners", force: :cascade do |t|
-    t.integer  "min_age",      limit: 4
-    t.integer  "max_age",      limit: 4
-    t.integer  "user_id",      limit: 4
-    t.integer  "sexuality_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "min_age",    limit: 4
+    t.integer  "max_age",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "partners", ["sexuality_id"], name: "index_partners_on_sexuality_id", using: :btree
   add_index "partners", ["user_id"], name: "index_partners_on_user_id", using: :btree
+
+  create_table "partners_sexualities", force: :cascade do |t|
+    t.integer "partner_id",   limit: 4
+    t.integer "sexuality_id", limit: 4
+  end
+
+  add_index "partners_sexualities", ["partner_id", "sexuality_id"], name: "index_partners_sexualities_on_partner_id_and_sexuality_id", unique: true, using: :btree
+  add_index "partners_sexualities", ["partner_id"], name: "index_partners_sexualities_on_partner_id", using: :btree
+  add_index "partners_sexualities", ["sexuality_id"], name: "index_partners_sexualities_on_sexuality_id", using: :btree
 
   create_table "partners_styles", id: false, force: :cascade do |t|
     t.integer "partner_id", limit: 4
@@ -41,6 +48,17 @@ ActiveRecord::Schema.define(version: 20150618072517) do
   add_index "partners_zodiacs", ["partner_id"], name: "index_partners_zodiacs_on_partner_id", using: :btree
   add_index "partners_zodiacs", ["zodiac_id"], name: "index_partners_zodiacs_on_zodiac_id", using: :btree
 
+  create_table "preferences", force: :cascade do |t|
+    t.integer  "matched_id", limit: 4
+    t.integer  "matcher_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "preferences", ["matched_id", "matcher_id"], name: "index_preferences_on_matched_id_and_matcher_id", unique: true, using: :btree
+  add_index "preferences", ["matched_id"], name: "index_preferences_on_matched_id", using: :btree
+  add_index "preferences", ["matcher_id"], name: "index_preferences_on_matcher_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.date     "birthday"
     t.integer  "user_id",          limit: 4
@@ -51,8 +69,10 @@ ActiveRecord::Schema.define(version: 20150618072517) do
     t.integer  "style_id",         limit: 4
     t.string   "avatar_cycle",     limit: 255
     t.string   "avatar_rectangle", limit: 255
+    t.integer  "sexuality_id",     limit: 4
   end
 
+  add_index "profiles", ["sexuality_id"], name: "index_profiles_on_sexuality_id", using: :btree
   add_index "profiles", ["style_id"], name: "index_profiles_on_style_id", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
   add_index "profiles", ["zodiac_id"], name: "index_profiles_on_zodiac_id", using: :btree
@@ -78,6 +98,11 @@ ActiveRecord::Schema.define(version: 20150618072517) do
     t.string   "password_digest", limit: 255
     t.string   "remember_digest", limit: 255
     t.string   "phone",           limit: 255
+    t.float    "latitude",        limit: 24
+    t.float    "longitude",       limit: 24
+    t.integer  "state",           limit: 4
+    t.integer  "matched_count",   limit: 4
+    t.integer  "accepted_count",  limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -88,8 +113,8 @@ ActiveRecord::Schema.define(version: 20150618072517) do
     t.datetime "updated_at",             null: false
   end
 
-  add_foreign_key "partners", "sexualities"
   add_foreign_key "partners", "users"
+  add_foreign_key "profiles", "sexualities"
   add_foreign_key "profiles", "styles"
   add_foreign_key "profiles", "users"
   add_foreign_key "profiles", "zodiacs"

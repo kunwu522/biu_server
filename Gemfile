@@ -38,8 +38,11 @@ gem 'capistrano-rails', group: :development
 gem 'capistrano-passenger', group: :development
 gem 'passenger'
 
-# User CarrierWave
+# Use CarrierWave
 gem 'carrierwave'
+
+# Use Whenever
+gem 'whenever', :require => false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

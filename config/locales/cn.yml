@@ -3,3 +3,4 @@ cn:
     phone_number_password_not_match: "手机与密码不匹配"
     send_passcode_failed: "发送验证码失败，请稍后再试"
     upload_failed: "照片上传失败"
+    user_not_exist: "用户不存在"

@@ -67,6 +67,8 @@ Rails.application.routes.draw do
                 post 'login' => 'sessions#create'
                 delete 'logout' => 'sessions#destroy'
                 post 'passcode' => 'passcodes#create'
+                put 'location/:id' => 'matches#update'
+                get 'match/:id/:distance' => 'matches#match'
                 scope "(:shape)", shape:/rect|cycle/ do
                     post 'avatar/:id' => 'profiles#upload'
                     get 'avatar/:id' => 'profiles#download'
