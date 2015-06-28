@@ -42,7 +42,7 @@ gem 'passenger'
 gem 'carrierwave'
 
 # Use Whenever
-gem 'whenever', :require => false
+gem 'whenever'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
