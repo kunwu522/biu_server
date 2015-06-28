@@ -78,6 +78,7 @@ Rails.application.routes.draw do
                 end
                 resources :profiles
                 resources :partners
+                resources :devices
             end
           end
     end

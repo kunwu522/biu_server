@@ -23,4 +23,8 @@ every 1.minute do
     rake "biu:match"
 end
 
+every 1.day, :at => '3:00 am' do
+    rake "biu:scan_user"
+end
+
 # Learn more: http://github.com/javan/whenever

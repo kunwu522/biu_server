@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     attr_accessor :remember_token
     has_one :profile
     has_one :partner
+    has_many :devices
     has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
     has_many :matchers, through: :preferences, source: :matcher
     
@@ -74,7 +75,7 @@ class User < ActiveRecord::Base
             if (self_age >= user.partner.min_age && self_age <= user.partner.max_age && prefer_user_age >= self.partner.min_age && prefer_user_age <= self.partner.max_age)
                 result << user
             else
-                puts "age not match username: #{user.username}, age: #{prefer_user_age}"
+                puts "age not match, user1: (name: #{self.username}, age: #{self_age}), user2: (name: #{user.username}, age: #{prefer_user_age})"
             end
         end
         return result
@@ -82,15 +83,68 @@ class User < ActiveRecord::Base
 
     # Preferences
     def prefer(other_user)
-        preferences.create(matcher_id: other_user.id)
+        if other_user
+            preferences.create(matcher_id: other_user.id)
+        end
     end
     
     # Matched
     def User.matched(user1, user2)
-        user1_matched_count = user1.matched_count++
-        user2_matched_count = user2.matched_count++
-        user1.update_attributes(state: STATE_MATCHED, matched_count: user1_matched_count)
-        user2.update_attributes(state: STATE_MATCHED, matched_count: user2_matched_count)
+        if !user1 || !user2
+            return
+        end
+        user1_matched_count = user1.matched_count + 1
+        user2_matched_count = user2.matched_count + 1
+        user1.update_attribute(:state, STATE_MATCHED)
+        user1.update_attribute(:matched_count, user1_matched_count)
+        user2.update_attribute(:state, STATE_MATCHED)
+        user2.update_attribute(:matched_count, user2_matched_count)
+    end
+    
+    # Puts user info
+    def user_detail_info
+        puts "User id: #{self.id}, username: #{self.username}, latitude: #{self.latitude}, longitude: #{self.longitude} 
+              Profile id: #{self.profile.id}, 
+                    birthday: #{self.profile.birthday}, 
+                    gender: #{self.profile.gender}
+                    zodiac_id: #{self.profile.zodiac.id}, 
+                    style_id: #{self.profile.style.id}, 
+                    sexuality_id: #{self.profile.sexuality.id}
+                <Partner id: #{self.partner.id}, 
+                    min_age: #{self.partner.min_age}, 
+                    max_age: #{self.partner.max_age},
+                    sexualities: #{self.partner.sexualities.ids}
+                    zodiacs: #{self.partner.zodiacs.ids}
+                    styles: #{self.partner.styles.ids}"
+    end
+    
+    def to_hash
+        profile = nil
+        if self.profile
+            profile = {"profile_id" => self.profile.id,
+                           "gender" => self.profile.gender,
+                        "sexuality" => self.profile.sexuality.id,
+                         "birthday" => self.profile.birthday,
+                           "zodiac" => self.profile.zodiac.id,
+                            "style" => self.profile.style.id}
+        end
+        
+        partner = nil
+        if @user.partner
+            partner = {"partner_id" => self.partner.id,
+                        "sexuality" => self.partner.sexualities.ids,
+                          "min_age" => self.partner.min_age,
+                          "max_age" => self.partner.max_age,
+                       "zodiac_ids" => self.partner.zodiacs.ids,
+                        "style_ids" => self.partner.styles.ids}
+        end
+        
+        user = {"user_id" =>  @user.id, 
+               "username" => @user.username, 
+                "profile" => profile,
+                "partner" => partner,
+                  "token" => @user.device.token}
+        return user
     end
     
     private
@@ -101,6 +155,9 @@ class User < ActiveRecord::Base
     
     def default_values
         self.state ||= STATE_COLSE
+        self.matched_count ||= 0
+        self.accepted_count ||= 0
+        self.match_distance ||= 0
     end
                         
 end
