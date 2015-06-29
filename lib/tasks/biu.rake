@@ -1,5 +1,5 @@
 require "#{Rails.root}/app/helpers/api/v1/notifications_helper"
-include Api::V1::NotificationsHelper
+include NotificationsHelper
 
 namespace :biu do
     desc "Matching Users"

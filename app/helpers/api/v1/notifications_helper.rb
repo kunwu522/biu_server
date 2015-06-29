@@ -1,5 +1,5 @@
 require 'houston'
-module Api::V1::NotificationsHelper
+module NotificationsHelper
     def push_match_notification(user1, user2)
         if !user1 && !user2
             return
