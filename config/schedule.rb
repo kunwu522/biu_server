@@ -17,7 +17,8 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-set :output, "~/Work/Biu/tmp/log/cron_log.log"
+# set :output, "~/Work/Biu/tmp/log/cron_log.log"
+set :output, "~/logs/cron_log.log"
 
 every 1.minute do
     rake "biu:match"
