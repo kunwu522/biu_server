@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
     before_save :default_values
         
     attr_accessor :remember_token
-    has_one :profile
-    has_one :partner
-    has_many :devices
+    has_one :profile, dependent: :destroy
+    has_one :partner, dependent: :destroy
+    has_many :devices, dependent: :destroy
     has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
     has_many :matchers, through: :preferences, source: :matcher
     

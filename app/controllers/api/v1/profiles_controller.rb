@@ -76,6 +76,6 @@ class Api::V1::ProfilesController < ApplicationController
     
     private
     def profile_params
-        params.require(:profile).permit(:birthday, :gender, :user_id, :zodiac_id, :style_id)
+        params.require(:profile).permit(:birthday, :gender, :sexuality_id, :user_id, :zodiac_id, :style_id)
     end
 end

@@ -1,7 +1,12 @@
 class Api::V1::SessionsController < ApplicationController
     def create
         @user = User.find_by(phone: params[:session][:phone])
-        if @user && @user.authenticate(params[:session][:password])
+        if !@user
+            error = {"error_message" => I18n.t('phone_not_exist')}
+            render json: error, status: 404
+            return
+        end
+        if @user.authenticate(params[:session][:password])
             Rails.logger.debug { "#{@user.id} log in..." }
             log_in @user
             remember @user
@@ -41,7 +46,7 @@ class Api::V1::SessionsController < ApplicationController
                 style_ids << style.id
             end
             partner = {"partner_id" => @user.partner.id,
-                        "sexuality" => @user.partner.sexuality.id,
+                        "sexuality_ids" => @user.partner.sexualities.ids,
                           "min_age" => @user.partner.min_age,
                           "max_age" => @user.partner.max_age,
                        "zodiac_ids" => zodiac_ids,

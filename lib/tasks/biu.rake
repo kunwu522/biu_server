@@ -1,3 +1,6 @@
+require "#{Rails.root}/app/helpers/api/v1/notifications_helper"
+include Api::V1::NotificationsHelper
+
 namespace :biu do
     desc "Matching Users"
     task :match => :environment do
@@ -25,6 +28,7 @@ namespace :biu do
                         matching_users.delete(matched_user[0])
                         
                         # TODO: send notification
+                        push_match_notification(matching_user, matched_user[0])
                     else
                         puts "There is no matched user for #{matching_user.username}"
                     end

@@ -44,6 +44,9 @@ gem 'carrierwave'
 # Use Whenever
 gem 'whenever'
 
+# User Houston to push notification
+gem 'houston'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
