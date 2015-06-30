@@ -1,6 +1,11 @@
 class Api::V1::PartnersController < ApplicationController
     
     def create
+        partner = Parnter.find_by(user_id: params[:partner][:user_id])
+        if partner
+            render json: "", status: 200
+            return;
+        end
         @partner = Partner.new(partner_params)        
         if @partner.save
             Rails.logger.debug { "#{@partner.id} saved successful." }

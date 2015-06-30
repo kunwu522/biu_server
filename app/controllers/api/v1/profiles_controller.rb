@@ -7,6 +7,11 @@ class Api::V1::ProfilesController < ApplicationController
     end
     
     def create
+        profile = Profile.find_by(user_id: params[:profile][:user_id])
+        if profile
+            render json: "", status: 200
+            return;
+        end
         @profile = Profile.new(profile_params)
         if @profile.save
             Rails.logger.debug { "#{@profile.id} save success." }
@@ -14,7 +19,7 @@ class Api::V1::ProfilesController < ApplicationController
             response = {
                 'profile_id' => @profile.id
             }
-            render json: response
+            render json: response, status: 200
         else
             render json: @profile.errors, status: :unprocessable_entity
         end

@@ -57,6 +57,9 @@ class User < ActiveRecord::Base
     
     # Return prefer user
     def prefer_users
+        if !self.partner || !self.profile
+            return;
+        end
         users = User.joins(:profile, partner:[:sexualities, :zodiacs, :styles]).where(profiles:{sexuality_id: self.partner.sexualities.ids, zodiac_id: self.partner.zodiacs.ids, style_id: self.partner.styles.ids}, sexualities:{id: self.profile.sexuality.id}, zodiacs:{id: self.profile.zodiac.id}, styles:{id: self.profile.style.id})
         result = Array.new
         self_age = age(self.profile.birthday)
@@ -73,6 +76,9 @@ class User < ActiveRecord::Base
     
     # Return prefer user who state is matching
     def prefer_matching_users
+        if !self.partner || !self.profile
+            return;
+        end
         users = User.joins(:profile, partner:[:sexualities, :zodiacs, :styles]).where(state: User::STATE_MATCHING, profiles:{sexuality_id: self.partner.sexualities.ids, zodiac_id: self.partner.zodiacs.ids, style_id: self.partner.styles.ids}, sexualities:{id: self.profile.sexuality.id}, zodiacs:{id: self.profile.zodiac.id}, styles:{id: self.profile.style.id})
         result = Array.new
         self_age = age(self.profile.birthday)
