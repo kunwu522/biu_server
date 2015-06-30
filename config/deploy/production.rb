@@ -52,7 +52,7 @@ set :ssh_options, {
   keys: %w(~/.ssh/id_rsa),
   forward_agent: false,
   auth_methods: %w(password),
-  password: 'deploy0408',
+  password: 'user_deploys_password',
   user: 'deploy',
 }
 
