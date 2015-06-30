@@ -8,7 +8,7 @@ class Api::V1::PartnersController < ApplicationController
             response = {"partner_id" => @partner.id}
             render json: response
         else
-            puts "#{Time.now, error: @partner.errors.full_messages}"
+            puts "#{Time.now}, error: @#{partner.errors.full_messages}"
             render json: @partner.errors, status: 500
         end
     end
@@ -22,7 +22,7 @@ class Api::V1::PartnersController < ApplicationController
             }
             render json: response
         else
-            puts "#{Time.now, error: @partner.errors.full_messages}"
+            puts "#{Time.now}, error: #{@partner.errors.full_messages}"
             render json: @partner.errors, status: 500
         end
     end
