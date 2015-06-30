@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
     before_save :default_values
         
     attr_accessor :remember_token
+    attr_accessor :updating_password
     has_one :profile, dependent: :destroy
     has_one :partner, dependent: :destroy
     has_many :devices, dependent: :destroy
@@ -15,9 +16,9 @@ class User < ActiveRecord::Base
                           uniqueness: true, format: { with: VALID_PHONE_REGEX }
     
     has_secure_password
-    validates :password, length: { minimum: 8 }
+    validates :password, length: { minimum: 8 }, :if => :should_validate_password? 
     
-    STATE_COLSE = 0
+    STATE_CLOSE = 0
     STATE_MATCHING = 1
     STATE_MATCHED = 2
     
@@ -47,6 +48,11 @@ class User < ActiveRecord::Base
     # Forgets a user
     def forget
         update_attribute(:remember_digest, nil)
+    end
+    
+    # return true if need to check passwork
+    def should_validate_password?
+        updating_password || new_record?
     end
     
     # Return prefer user
@@ -86,6 +92,22 @@ class User < ActiveRecord::Base
         if other_user
             preferences.create(matcher_id: other_user.id)
         end
+    end
+    
+    def unprefer(other_user)
+        if other_user
+            preferences.find_by(matcher_id: other_user.id).destroy
+        end
+    end
+    
+    # Mathcing close
+    def matching_close
+        self.update_attribute(:state, STATE_CLOSE)
+    end
+    
+    # Matching
+    def matching
+        self.update_attribute(:state, STATE_MATCHING)
     end
     
     # Matched
@@ -154,7 +176,7 @@ class User < ActiveRecord::Base
     end
     
     def default_values
-        self.state ||= STATE_COLSE
+        self.state ||= STATE_CLOSE
         self.matched_count ||= 0
         self.accepted_count ||= 0
         self.match_distance ||= 0

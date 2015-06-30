@@ -1,4 +1,4 @@
-require "#{Rails.root}/app/helpers/api/v1/notifications_helper"
+require "#{Rails.root}/app/helpers/notifications_helper"
 include NotificationsHelper
 
 namespace :biu do
@@ -42,13 +42,21 @@ namespace :biu do
     end
     
     desc "Scan Users to Preferences"
-    task :scan_user => :environment do
+    task :scan_users => :environment do
         # scan user
         users = User.all
         users.each do |user|
-            prefer_users = user.prefer_users
-            if prefer_users.count > 0
-                prefer_users.each do |prefer_user|
+            # new_prefer_users = user.prefer_users
+            # old_prefer_users = user.matcher
+            should_unprefer_users = user.matchers - user.prefer_users
+            should_prefer_users = user.prefer_users - user.matchers
+            if should_unprefer_users.count > 0
+                should_unprefer_users.each do |unprefer_user|
+                    user.unprefer(unprefer_user)
+                end
+            end
+            if should_prefer_users.count > 0
+                should_prefer_users.each do |prefer_user|
                      user.prefer(prefer_user)
                 end
             end

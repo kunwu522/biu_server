@@ -4,15 +4,27 @@ class Api::V1::PartnersController < ApplicationController
         @partner = Partner.new(partner_params)        
         if @partner.save
             Rails.logger.debug { "#{@partner.id} saved successful." }
+            PreferencesUpdateJob.perform_later(@partner.user)
             response = {"partner_id" => @partner.id}
             render json: response
         else
-            render plain: "create partner failed.", status: :internal_server_error
+            puts "#{Time.now, error: @partner.errors.full_messages}"
+            render json: @partner.errors, status: 500
         end
     end
     
     def update
-        
+        @partner = Partner.find(params[:id])
+        if @partner.update_attributes(partner_params)
+            PreferencesUpdateJob.perform_later(@partner.user)
+            response = {
+                'id' => @profile.id
+            }
+            render json: response
+        else
+            puts "#{Time.now, error: @partner.errors.full_messages}"
+            render json: @partner.errors, status: 500
+        end
     end
     
     private

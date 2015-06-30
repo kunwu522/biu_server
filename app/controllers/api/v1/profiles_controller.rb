@@ -10,6 +10,7 @@ class Api::V1::ProfilesController < ApplicationController
         @profile = Profile.new(profile_params)
         if @profile.save
             Rails.logger.debug { "#{@profile.id} save success." }
+            PreferencesUpdateJob.perform_later(@profile.user)
             response = {
                 'profile_id' => @profile.id
             }
@@ -22,6 +23,7 @@ class Api::V1::ProfilesController < ApplicationController
     def update
         @profile = Profile.find(params[:id])
         if @profile.update_attributes(profile_params)
+            PreferencesUpdateJob.perform_later(@profile.user)
             response = {
                 'id' => @profile.id
             }
