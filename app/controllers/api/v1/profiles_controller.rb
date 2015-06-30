@@ -8,14 +8,16 @@ class Api::V1::ProfilesController < ApplicationController
     
     def create
         profile = Profile.find_by(user_id: params[:profile][:user_id])
+        puts "user_id: #{params[:profile][:user_id]}, profile: #{profile}"
         if profile
-            render json: "", status: 200
+            response = {'profile_id' => profile.id}
+            render json: response, status: 200
             return;
         end
         @profile = Profile.new(profile_params)
         if @profile.save
             Rails.logger.debug { "#{@profile.id} save success." }
-            PreferencesUpdateJob.perform_later(@profile.user)
+            PreferencesCreateJob.perform_later(@profile.user)
             response = {
                 'profile_id' => @profile.id
             }

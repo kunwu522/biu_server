@@ -3,13 +3,14 @@ class Api::V1::PartnersController < ApplicationController
     def create
         partner = Partner.find_by(user_id: params[:partner][:user_id])
         if partner
-            render json: "", status: 200
+            response = {"partner_id" => partner.id}
+            render json: response, status: 200
             return;
         end
         @partner = Partner.new(partner_params)        
         if @partner.save
             Rails.logger.debug { "#{@partner.id} saved successful." }
-            PreferencesUpdateJob.perform_later(@partner.user)
+            PreferencesCreateJob.perform_later(@partner.user)
             response = {"partner_id" => @partner.id}
             render json: response
         else
