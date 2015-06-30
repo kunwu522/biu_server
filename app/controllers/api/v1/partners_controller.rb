@@ -1,7 +1,7 @@
 class Api::V1::PartnersController < ApplicationController
     
     def create
-        partner = Parnter.find_by(user_id: params[:partner][:user_id])
+        partner = Partner.find_by(user_id: params[:partner][:user_id])
         if partner
             render json: "", status: 200
             return;
