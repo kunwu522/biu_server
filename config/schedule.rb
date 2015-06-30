@@ -20,7 +20,7 @@
 # set :output, "~/Work/Biu/tmp/log/cron_log.log"
 set :output, "~/logs/cron_log.log"
 
-job_type :rbenv_rake, %Q{export PATH=/opt/rbenv/shims:/opt/rbenv/bin:/usr/bin:$PATH; eval "$(rbenv init -)"; \
+job_type :rbenv_rake, %Q{export PATH=~/.rbenv/shims:~/.rbenv/bin:/usr/local/bin:/usr/bin:$PATH; eval "$(rbenv init -)"; \
                          cd :path && bundle exec rake :task --silent :output }
 
 every 1.minute do
