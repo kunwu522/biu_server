@@ -21,7 +21,7 @@
 set :output, "~/logs/cron_log.log"
 
 job_type :rbenv_rake, %Q{export PATH=~/.rbenv/shims:~/.rbenv/bin:/usr/local/bin:/usr/bin:$PATH; eval "$(rbenv init -)"; \
-                         cd :path && bundle exec rake :task --silent :output }
+                         cd :path && :environment_variable=:environment bundle exec rake :task --silent :output }
 
 every 1.minute do
     rbenv_rake "biu:match"
