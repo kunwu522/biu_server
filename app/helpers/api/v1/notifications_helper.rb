@@ -18,6 +18,9 @@ module NotificationsHelper
     end
     
     def push_notification(token, alert, payload, badge: 0, sound: "sosumi.aiff", category: "INVITE_CATEGORY", content_available: true)
+        if !token || !alert || !payload
+            puts "#{Time.now}, input is null"
+        end
         apn = Houston::Client.development
         APN.certificate = File.read("~/Work/Biu/certification/apple_push_notification.pem")
         

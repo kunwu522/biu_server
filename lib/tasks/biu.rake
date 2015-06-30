@@ -22,7 +22,7 @@ namespace :biu do
                                                       ORDER BY distance 
                                                       LIMIT 1")
                     if matched_user.count > 0
-                        puts "Match successed!! user1(id: #{matching_user.id}, name: #{matching_user.username}), user2(id: #{matched_user[0].id}, name: #{matched_user[0].username})"
+                        puts "#{Time.now}， Match successed!! user1(id: #{matching_user.id}, name: #{matching_user.username}), user2(id: #{matched_user[0].id}, name: #{matched_user[0].username})"
                         User.matched(matching_user, matched_user[0])
                         matching_users.delete(matching_user)
                         matching_users.delete(matched_user[0])
@@ -30,14 +30,14 @@ namespace :biu do
                         # TODO: send notification
                         push_match_notification(matching_user, matched_user[0])
                     else
-                        puts "There is no matched user for #{matching_user.username}"
+                        puts "#{Time.now}， There is no matched user for #{matching_user.username}"
                     end
                 else
-                    puts "There is no waiting matching prefer_user for #{matching_user.username}"
+                    puts "#{Time.now}，There is no waiting matching prefer_user for #{matching_user.username}"
                 end
             end
         else
-            puts "No user state is matching"
+            puts "#{Time.now}， No user state is matching"
         end
     end
     
