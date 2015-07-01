@@ -70,8 +70,8 @@ Rails.application.routes.draw do
                 put 'location/:id' => 'matches#update'
                 post 'match/:id' => 'matches#match'
                 scope "(:shape)", shape:/rect|cycle/ do
-                    post 'avatar/:id' => 'profiles#upload'
-                    get 'avatar/:id' => 'profiles#download'
+                    post 'avatar/:id' => 'users#upload'
+                    get 'avatar/:id' => 'users#download'
                 end
                 resources :users do
                     get 'search', on: :collection

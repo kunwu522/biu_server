@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628070854) do
+ActiveRecord::Schema.define(version: 20150701035940) do
 
   create_table "devices", force: :cascade do |t|
     t.string   "token",      limit: 255
@@ -70,15 +70,13 @@ ActiveRecord::Schema.define(version: 20150628070854) do
 
   create_table "profiles", force: :cascade do |t|
     t.date     "birthday"
-    t.integer  "user_id",          limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "gender",           limit: 4
-    t.integer  "zodiac_id",        limit: 4
-    t.integer  "style_id",         limit: 4
-    t.string   "avatar_cycle",     limit: 255
-    t.string   "avatar_rectangle", limit: 255
-    t.integer  "sexuality_id",     limit: 4
+    t.integer  "user_id",      limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "gender",       limit: 4
+    t.integer  "zodiac_id",    limit: 4
+    t.integer  "style_id",     limit: 4
+    t.integer  "sexuality_id", limit: 4
   end
 
   add_index "profiles", ["sexuality_id"], name: "index_profiles_on_sexuality_id", using: :btree
@@ -100,19 +98,21 @@ ActiveRecord::Schema.define(version: 20150628070854) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        limit: 255
-    t.string   "email",           limit: 255
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.string   "password_digest", limit: 255
-    t.string   "remember_digest", limit: 255
-    t.string   "phone",           limit: 255
-    t.decimal  "latitude",                    precision: 10, scale: 6
-    t.decimal  "longitude",                   precision: 10, scale: 6
-    t.integer  "state",           limit: 4
-    t.integer  "matched_count",   limit: 4
-    t.integer  "accepted_count",  limit: 4
-    t.integer  "match_distance",  limit: 4
+    t.string   "username",         limit: 255
+    t.string   "email",            limit: 255
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.string   "password_digest",  limit: 255
+    t.string   "remember_digest",  limit: 255
+    t.string   "phone",            limit: 255
+    t.decimal  "latitude",                     precision: 10, scale: 6
+    t.decimal  "longitude",                    precision: 10, scale: 6
+    t.integer  "state",            limit: 4
+    t.integer  "matched_count",    limit: 4
+    t.integer  "accepted_count",   limit: 4
+    t.integer  "match_distance",   limit: 4
+    t.string   "avatar_rectangle", limit: 255
+    t.string   "avatar_cycle",     limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

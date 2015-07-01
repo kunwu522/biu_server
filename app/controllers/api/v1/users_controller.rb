@@ -41,6 +41,54 @@ class Api::V1::UsersController < ApplicationController
         end
     end
     
+    def upload
+        user = User.find(params[:id])
+        puts "file: #{params[:avatar]}"
+        attribute = params[:shape] == 'rect' ? 'avatar_rectangle' : 'avatar_cycle'
+        if user.update_attribute(attribute, params[:avatar])
+            puts "rectangle avatar url: #{user.avatar_rectangle.url}"
+            puts "cycle avatar url: #{user.avatar_cycle.url}"
+            response = {"rectangle_url" => user.avatar_rectangle.url,
+                        "cycle_url" => user.avatar_cycle.url}
+            render json: response, status: 200
+        else
+            error = {"error_message" => I18n.t('upload_failed')}
+            render json: error, status: 500
+        end
+    end
+    
+    def download
+        user = User.find(params[:id])
+        if !user
+            render json: "", status: 404
+            return
+        end
+        # if File.exist?(params[:url])
+        #     send_file params[:url], type: 'image/jpg', disposition: 'inline'
+        # else
+        #     render json: "", status: 404
+        # end
+        
+        if params[:shape] == 'rect'
+            if user.avatar_rectangle.url
+                send_file user.avatar_rectangle.url, type: 'image/jpg', disposition: 'inline'
+            else
+                render json: "", status: 404
+            end
+            return
+        end
+
+        if params[:shape] == 'cycle'
+            if user.avatar_cycle.url
+                send_file user.avatar_cycle.url, type: 'image/jpg', disposition: 'inline'
+            else
+                render json: "", status: 404
+            end
+            return
+        end
+        render json: "", status: 404
+    end
+    
     private
     def user_params
         params.require(:user).permit(:username, :phone, :password, :password_confirmation, :email)

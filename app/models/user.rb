@@ -1,3 +1,4 @@
+require 'carrierwave/orm/activerecord'
 class User < ActiveRecord::Base
     before_save :default_values
         
@@ -8,6 +9,8 @@ class User < ActiveRecord::Base
     has_many :devices, dependent: :destroy
     has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
     has_many :matchers, through: :preferences, source: :matcher
+    mount_uploader :avatar_cycle, AvatarUploader
+    mount_uploader :avatar_rectangle, AvatarUploader
     
     validates :username, presence: true, length: { maximum: 50 }
 
@@ -158,20 +161,21 @@ class User < ActiveRecord::Base
         end
         
         partner = nil
-        if @user.partner
+        if self.partner
             partner = {"partner_id" => self.partner.id,
-                        "sexuality" => self.partner.sexualities.ids,
+                    "sexuality_ids" => self.partner.sexualities.ids,
                           "min_age" => self.partner.min_age,
                           "max_age" => self.partner.max_age,
                        "zodiac_ids" => self.partner.zodiacs.ids,
                         "style_ids" => self.partner.styles.ids}
         end
         
-        user = {"user_id" =>  @user.id, 
-               "username" => @user.username, 
+        user = {"user_id" => self.id, 
+               "username" => self.username,
+       "avatar_cycle_url" => self.avatar_cycle.url,
+   "avatar_rectangle_url" => self.avatar_rectangle.url, 
                 "profile" => profile,
-                "partner" => partner,
-                  "token" => @user.device.token}
+                "partner" => partner}
         return user
     end
     

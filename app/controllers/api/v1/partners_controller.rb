@@ -24,7 +24,7 @@ class Api::V1::PartnersController < ApplicationController
         if @partner.update_attributes(partner_params)
             PreferencesUpdateJob.perform_later(@partner.user)
             response = {
-                'id' => @profile.id
+                'id' => @partner.id
             }
             render json: response
         else
