@@ -11,7 +11,7 @@ class Api::V1::DevicesController < ApplicationController
     end
     
     private
-    def device_parames
+    def device_params
         params.require(:device).permit(:token, :user_id)
     end
 end
