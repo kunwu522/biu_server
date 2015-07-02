@@ -10,7 +10,8 @@ class Api::V1::SessionsController < ApplicationController
             Rails.logger.debug { "#{@user.id} log in..." }
             log_in @user
             remember @user
-            render json: @user.to_hash, status: 201
+            response = {"user" => @user.to_hash}
+            render json: response, status: 201
         else
             error = {"error_message" => I18n.t('phone_number_password_not_match')}
             render json: error, status: 401
