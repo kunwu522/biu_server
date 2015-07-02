@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+    before_action :current_user?
     
     def show
         @user = User.find(params[:id])

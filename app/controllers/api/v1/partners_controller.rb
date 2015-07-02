@@ -1,4 +1,5 @@
 class Api::V1::PartnersController < ApplicationController
+    before_action :current_user?
     
     def create
         partner = Partner.find_by(user_id: params[:partner][:user_id])

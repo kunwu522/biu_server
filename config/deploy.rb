@@ -60,7 +60,7 @@ namespace :deploy do
      desc "Override cap restart task"
      task :restart do
          on roles(:deploy), in: :sequence, wait: 5 do
-             run "#{sudo} service nginx restart"
+             run "#{sudo} /etct/init.d/nginx restart"
          end
      end
      

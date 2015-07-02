@@ -56,6 +56,8 @@ set :ssh_options, {
   user: 'deploy',
 }
 
+set :passenger_restart_command, 'sudo /etc/init.d/nginx restart'
+
 # The server-based syntax can be used to override options:
 # ------------------------------------
 # server 'example.com',

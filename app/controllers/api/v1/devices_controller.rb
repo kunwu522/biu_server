@@ -1,4 +1,5 @@
 class Api::V1::DevicesController < ApplicationController
+    before_action :current_user?
     
     def create
         device = Device.new(device_params)

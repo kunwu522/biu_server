@@ -1,5 +1,5 @@
 class Api::V1::ProfilesController < ApplicationController
-    # before_action :current_user?
+    before_action :current_user?
     
     def show
         @profile = Profile.find(params[:id])

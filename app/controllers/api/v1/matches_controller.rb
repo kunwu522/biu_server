@@ -1,4 +1,5 @@
 class Api::V1::MatchesController < ApplicationController
+    before_action :current_user?
     
     def update
         user = User.find(params[:id])
