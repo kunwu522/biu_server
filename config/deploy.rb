@@ -57,6 +57,13 @@ namespace :deploy do
         end
      end
      
+     desc "Override cap restart task"
+     task :restart do
+         on roles(:deploy), in: :sequence, wait: 5 do
+             run "#{sudo} service nginx restart"
+         end
+     end
+     
      after 'deploy:migrate', 'deploy:seed'
     
     after :restart, :clear_cache do
