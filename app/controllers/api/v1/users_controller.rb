@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :current_user?
+    before_action :current_user?, except: :create
     
     def show
         @user = User.find(params[:id])
