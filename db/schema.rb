@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701035940) do
+ActiveRecord::Schema.define(version: 20150703100234) do
+
+  create_table "communications", force: :cascade do |t|
+    t.integer  "sender_id",   limit: 4
+    t.integer  "receiver_id", limit: 4
+    t.integer  "state",       limit: 4, default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "communications", ["receiver_id"], name: "index_communications_on_receiver_id", using: :btree
+  add_index "communications", ["sender_id", "receiver_id"], name: "index_communications_on_sender_id_and_receiver_id", unique: true, using: :btree
+  add_index "communications", ["sender_id"], name: "index_communications_on_sender_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "token",      limit: 255

@@ -1,12 +1,12 @@
 class Api::V1::SessionsController < ApplicationController
     def create
-        @user = User.find_by(phone: params[:session][:phone])
+        @user = User.find_by(phone: params[:phone])
         if !@user
             error = {"error_message" => I18n.t('phone_not_exist')}
             render json: error, status: 404
             return
         end
-        if @user.authenticate(params[:session][:password])
+        if @user.authenticate(params[:password])
             Rails.logger.debug { "#{@user.id} log in..." }
             log_in @user
             remember @user

@@ -31,6 +31,23 @@ class Api::V1::MatchesController < ApplicationController
                     puts "#{Time.now}, error: #{user.errors.full_messages}"
                     render json: "", statue: 500
                 end
+            when User::STATE_ACCEPT
+                user.start_communication(params[:match][:matched_user_id])
+                matched_user = User.find(params[:match][:matched_user_id])
+                if matched_user
+                    push_matched_user_accepted_notification(matched_user)
+                    render json: "", statue: 200
+                else
+                    render json: "", statue: 404
+                end
+            when User::STATE_REJECT
+                matched_user = User.find(params[:match][:matched_user_id])
+                if matched_user
+                    push_matched_user_rejected_notification(matched_user)
+                    render json: "", statue: 200
+                else
+                    render json: "", statue: 404
+                end
             else
                 render json: "", statue: 400
             end

@@ -6,3 +6,5 @@ cn:
     upload_failed: "照片上传失败"
     user_not_exist: "用户不存在"
     match_push_notification_alert: "恭喜，为您找到了心动的人"
+    matched_user_accepted: "对方已经接受了你，快去跟Ta聊天吧"
+    matched_user_rejected: "对方取消了本次匹配，快去需找下一个Ta"

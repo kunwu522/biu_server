@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
     has_many :devices, dependent: :destroy
     has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
     has_many :matchers, through: :preferences, source: :matcher
+    has_one :active_communications, class_name: "Communication", foreign_key: "sender_id", dependent: :destroy
+    has_one :receiver, through: :active_communications, source: :receiver
+    has_one :passive_communications, class_name: "Communication", foreign_key: "receiver_id", dependent: :destroy
+    has_one :sender, through: :passive_communications, source: :sender
     mount_uploader :avatar_cycle, AvatarUploader
     mount_uploader :avatar_rectangle, AvatarUploader
     
@@ -24,6 +28,9 @@ class User < ActiveRecord::Base
     STATE_CLOSE = 0
     STATE_MATCHING = 1
     STATE_MATCHED = 2
+    STATE_ACCEPT = 3
+    STATE_REJECT = 4
+    STATE_COMMUNICATION = 5
     
     # Return the hash digest of the given string
     def User.digest(string)
@@ -96,16 +103,31 @@ class User < ActiveRecord::Base
         return result
     end
 
-    # Preferences
+    # Preferences add
     def prefer(other_user)
         if other_user
             preferences.create(matcher_id: other_user.id)
         end
     end
-    
+    # Preferences remove
     def unprefer(other_user)
         if other_user
             preferences.find_by(matcher_id: other_user.id).destroy
+        end
+    end
+    
+    # Communications add
+    def start_communication(receiver)
+        if receiver
+            self.update_attribute(:state, STATE_COMMUNICATION)
+            active_communications.create(receiver_id: receiver.id)
+        end
+    end
+    
+    # Communication remove
+    def stop_communication(receiver)
+        if receiver
+            avtive_communications.find_by(receiver_id: receiver.id).destroy
         end
     end
     
