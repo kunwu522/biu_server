@@ -32,9 +32,9 @@ class Api::V1::MatchesController < ApplicationController
                     render json: "", statue: 500
                 end
             when User::STATE_ACCEPT
-                user.start_communication(params[:match][:matched_user_id])
                 matched_user = User.find(params[:match][:matched_user_id])
                 if matched_user
+                    user.start_communication(matched_user)
                     push_matched_user_accepted_notification(matched_user)
                     render json: "", statue: 200
                 else

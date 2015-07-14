@@ -52,11 +52,11 @@ module NotificationsHelper
         
             apn.push(notification)
         else
-            notification = {"aps" => {"alert" => alert, "badge" => badeg, "category" => category, "content_available" => content_available},
+            notification = {"aps" => {"alert" => alert, "badge" => badge, "category" => category, "content_available" => content_available},
                             "matched_user" => payload}
-            command = "echo -n #{notification.to_json} | nc -4u -w1 192.168.1.103 9930"
-            exec(command)
-            
+            command = "echo -n #{notification.to_json} | nc -4u -w1 192.168.1.100 9930"
+            puts "#{command}"
+            system command
         end
         
     end
