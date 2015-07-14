@@ -19,7 +19,7 @@ class Api::V1::MatchesController < ApplicationController
     def match
         user = User.find(params[:id])
         if user
-            case params[:match][:state]
+            case params[:match][:state].to_i
             when User::STATE_CLOSE
                 user.matching_close
                 render json: "", statue: 200
