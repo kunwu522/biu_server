@@ -7,10 +7,10 @@ module NotificationsHelper
         
         alert = I18n.t('match_push_notification_alert')
         payload1 = {"matched_user" => user2.to_hash}
-        push_notification(user1.devices.first.token, alert, payload1, category: "MATCHED", content_available: false)
+        push_notification(user1.device.token, alert, payload1, category: "MATCHED", content_available: false)
         
         payload2 = {"matched_user" => user1.to_hash}
-        push_notification(user2.devices.first.token, alert, payload2, category: "MATCHED", content_available: false)
+        push_notification(user2.device.token, alert, payload2, category: "MATCHED", content_available: false)
     end
     
     def push_matched_user_accepted_notification(user)
@@ -18,7 +18,7 @@ module NotificationsHelper
             return;
         end
         alert = I18n.t('matched_user_accepted')
-        push_notification(user.devices.first.token, alert, nil, category: "MATCH_ACCEPTED", content_available: false)
+        push_notification(user.device.token, alert, nil, category: "MATCH_ACCEPTED", content_available: false)
     end
     
     def push_matched_user_rejected_notification(user)
@@ -26,7 +26,7 @@ module NotificationsHelper
             return;
         end
         alert = I18n.t('matched_user_rejected')
-        push_notification(user.devices.first.token, alert, nil, category: "MATCH_REJECTED", content_available: false)
+        push_notification(user.device.token, alert, nil, category: "MATCH_REJECTED", content_available: false)
     end
     
     def push_message_notification()

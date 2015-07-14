@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     attr_accessor :updating_password
     has_one :profile, dependent: :destroy
     has_one :partner, dependent: :destroy
-    has_many :devices, dependent: :destroy
+    has_one :device, dependent: :destroy
     has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
     has_many :matchers, through: :preferences, source: :matcher
     has_one :active_communications, class_name: "Communication", foreign_key: "sender_id", dependent: :destroy
@@ -192,10 +192,16 @@ class User < ActiveRecord::Base
                         "style_ids" => self.partner.styles.ids}
         end
         
+        device_token = nil
+        if self.device
+            device_token = self.device.token
+        end
+        
         user = {"user_id" => self.id, 
                "username" => self.username,
        "avatar_cycle_url" => self.avatar_cycle.url,
    "avatar_rectangle_url" => self.avatar_rectangle.url, 
+           "device_token" => device_token,
                 "profile" => profile,
                 "partner" => partner}
         return user

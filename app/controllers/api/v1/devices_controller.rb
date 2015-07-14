@@ -10,6 +10,23 @@ class Api::V1::DevicesController < ApplicationController
         end
     end
     
+    def update
+        user = User.find(params[:id])
+        if user
+            device = user.device
+            if device
+                device.update_attribute(:token, params[:device][:token])
+                render json: "", statue: 200
+            else
+                device = Device.new(user_id: params[:id], token: params[:device][:token])
+                device.save!
+                render json: "", state: 200
+            end
+        else
+            render json: "", statue: 500
+        end
+    end
+    
     private
     def device_params
         params.require(:device).permit(:token, :user_id)
