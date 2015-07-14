@@ -17,10 +17,6 @@ class Api::V1::DevicesController < ApplicationController
             if device
                 device.update_attribute(:token, params[:device][:token])
                 render json: "", statue: 200
-            else
-                device = Device.new(user_id: params[:id], token: params[:device][:token])
-                device.save!
-                render json: "", state: 200
             end
         else
             render json: "", statue: 500
