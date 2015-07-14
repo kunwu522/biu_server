@@ -195,6 +195,8 @@ class User < ActiveRecord::Base
         device_token = nil
         if self.device
             device_token = self.device.token
+        else
+            device_token = ""
         end
         
         user = {"user_id" => self.id, 
