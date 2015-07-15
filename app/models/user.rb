@@ -1,3 +1,4 @@
+include NotificationsHelper
 require 'carrierwave/orm/activerecord'
 class User < ActiveRecord::Base
     before_save :default_values
@@ -25,12 +26,18 @@ class User < ActiveRecord::Base
     has_secure_password
     validates :password, length: { minimum: 8 }, :if => :should_validate_password? 
     
-    STATE_CLOSE = 0
+    STATE_IDLE = 0
     STATE_MATCHING = 1
     STATE_MATCHED = 2
-    STATE_ACCEPT = 3
-    STATE_REJECT = 4
-    STATE_COMMUNICATION = 5
+    STATE_WAITING_ACCEPTED = 3
+    STATE_COMMUNICATION = 4
+    
+    EVENT_STOP = 0
+    EVENT_START_MATCHING = 1
+    EVENT_ACCEPT = 2
+    EVENT_REJECT = 3
+    EVENT_TIMEOUT = 4
+    EVENT_CLOSE = 5
     
     # Return the hash digest of the given string
     def User.digest(string)
@@ -116,6 +123,75 @@ class User < ActiveRecord::Base
         end
     end
     
+    #Event
+    def stop
+        if self.state == STATE_MATCHING
+            update_attribute(:state, STATE_IDLE)
+        end
+    end
+    
+    def start_matching
+        if self.state == STATE_IDLE
+            update_attribute(:state, STATE_MATCHING)
+        end
+    end
+    
+    def match(other_user)
+        if self.state == STATE_MATCHING
+            matched_count = self.matched_count + 1
+            self.update_attribute(:state, STATE_MATCHED)
+            self.update_attribute(:matched_count, matched_count)
+            push_match_notification(self, other_user)
+        end
+    end
+    
+    def accept(matched_user)
+        if self.state == STATE_MATCHED
+            if matched_user.state == STATE_WAITING_ACCEPTED
+                self.update_attribute(:state, STATE_COMMUNICATION)
+                self.start_communication(matched_user)
+            else
+                self.update_attribute(:state, STATE_WAITING_ACCEPTED)
+            end
+            matched_user.matched_user_accepted(matched_user)
+            push_matched_user_accepted_notification(matched_user)
+        end
+    end
+    
+    def reject(matched_user)
+        if self.state == STATE_MATCHED || self.state == STATE_WAITING_ACCEPTED
+            self.update_attribute(:state, STATE_MATCHING)
+            matched_user.matched_user_rejected
+            push_matched_user_rejected_notification(matched_user)
+        end
+    end
+    
+    def matched_user_accepted(matched_user)
+        if self.state == STATE_WAITING_ACCEPTED
+            self.update_attribute(:state, STATE_COMMUNICATION)
+            start_communication(matched_user)
+        end
+    end
+    
+    def matched_user_rejected
+        if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
+            self.update_attribute(:state, STATE_MATCHING)
+        end
+    end
+    
+    def timeout
+        if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
+            self.update_attribute(:state, STATE_MATCHING)
+        end
+    end
+    
+    def close(matched_user)
+        if self.state == STATE_COMMUNICATION
+            self.update_attribute(:state, STATE_IDLE)
+            stop_communication(matched_user)
+        end
+    end
+    
     # Communications add
     def start_communication(receiver)
         if receiver
@@ -152,14 +228,6 @@ class User < ActiveRecord::Base
         user1.update_attribute(:matched_count, user1_matched_count)
         user2.update_attribute(:state, STATE_MATCHED)
         user2.update_attribute(:matched_count, user2_matched_count)
-    end
-    
-    def reject
-        self.update_attribute(:state, STATE_MATCHING)
-    end
-    
-    def rejected
-        
     end
     
     # Puts user info
@@ -226,6 +294,5 @@ class User < ActiveRecord::Base
         self.matched_count ||= 0
         self.accepted_count ||= 0
         self.match_distance ||= 0
-    end
-                        
+    end                   
 end

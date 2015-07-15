@@ -19,31 +19,41 @@ class Api::V1::MatchesController < ApplicationController
     def match
         user = User.find(params[:id])
         if user
-            case params[:match][:state].to_i
-            when User::STATE_CLOSE
-                user.matching_close
+            case params[:match][:event].to_i
+            when User::EVENT_STOP
+                user.stop
                 render json: "", statue: 200
-            when User::STATE_MATCHING
+            when User::EVENT_START_MATCHING
                 if user.update_attribute(:match_distance, params[:match][:distance])
-                    user.matching
+                    user.start_matching
                     render json: "", statue: 200
                 else
                     puts "#{Time.now}, error: #{user.errors.full_messages}"
                     render json: "", statue: 500
                 end
-            when User::STATE_ACCEPT
+            when User::EVENT_ACCEPT
                 matched_user = User.find(params[:match][:matched_user_id])
                 if matched_user
-                    user.start_communication(matched_user)
-                    push_matched_user_accepted_notification(matched_user)
+                    user.accept(matched_user)
                     render json: "", statue: 200
                 else
                     render json: "", statue: 404
                 end
-            when User::STATE_REJECT
+            when User::EVENT_REJECT
                 matched_user = User.find(params[:match][:matched_user_id])
                 if matched_user
-                    push_matched_user_rejected_notification(matched_user)
+                    user.reject(matched_user)
+                    render json: "", statue: 200
+                else
+                    render json: "", statue: 404
+                end
+            when User::EVENT_TIMEOUT
+                user.timout
+                render json: "", statue: 200
+            when User::EVENT_CLOSE
+                matched_user = User.find(params[:match][:matched_user_id])
+                if matched_user
+                    user.close(matched_user)
                     render json: "", statue: 200
                 else
                     render json: "", statue: 404

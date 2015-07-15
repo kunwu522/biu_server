@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703100234) do
+ActiveRecord::Schema.define(version: 20150715055045) do
 
   create_table "communications", force: :cascade do |t|
     t.integer  "sender_id",   limit: 4

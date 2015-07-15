@@ -23,12 +23,10 @@ namespace :biu do
                                                       LIMIT 1")
                     if matched_user.count > 0
                         puts "#{Time.now}， Match successed!! user1(id: #{matching_user.id}, name: #{matching_user.username}), user2(id: #{matched_user[0].id}, name: #{matched_user[0].username})"
-                        User.matched(matching_user, matched_user[0])
+                        matching_user.match(matched_user[0])
+                        matched_user[0].match(matching_user)
                         matching_users.delete(matching_user)
                         matching_users.delete(matched_user[0])
-                        
-                        # TODO: send notification
-                        push_match_notification(matching_user, matched_user[0])
                     else
                         puts "#{Time.now}， There is no matched user for #{matching_user.username}"
                     end

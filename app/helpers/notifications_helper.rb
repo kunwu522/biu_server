@@ -1,16 +1,27 @@
 require 'houston'
 module NotificationsHelper
-    def push_match_notification(user1, user2)
-        if !user1 && !user2
-            return
+    # def push_match_notification(user1, user2)
+    #     if !user1 && !user2
+    #         return
+    #     end
+    #
+    #     alert = I18n.t('match_push_notification_alert')
+    #     payload1 = {"matched_user" => user2.to_hash}
+    #     push_notification(user1.device.token, alert, payload1, category: "MATCHED", content_available: false)
+    #
+    #     payload2 = {"matched_user" => user1.to_hash}
+    #     push_notification(user2.device.token, alert, payload2, category: "MATCHED", content_available: false)
+    # end
+    
+    def push_match_notification(user, matched_user)
+        if !user && !matched_user
+            return;
         end
         
         alert = I18n.t('match_push_notification_alert')
-        payload1 = {"matched_user" => user2.to_hash}
-        push_notification(user1.device.token, alert, payload1, category: "MATCHED", content_available: false)
-        
-        payload2 = {"matched_user" => user1.to_hash}
-        push_notification(user2.device.token, alert, payload2, category: "MATCHED", content_available: false)
+        payload = {"matched_user" => matched_user.to_hash}
+        puts "send matched notification"
+        push_notification(user.device.token, alert, payload, category: "MATCHED", content_available: false)
     end
     
     def push_matched_user_accepted_notification(user)
