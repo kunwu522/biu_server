@@ -17,6 +17,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
+            system("sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}")
             user_response = {
                 'user_id' => @user.id,
                 'username' => @user.username,

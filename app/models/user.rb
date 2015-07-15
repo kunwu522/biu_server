@@ -290,7 +290,7 @@ class User < ActiveRecord::Base
     end
     
     def default_values
-        self.state ||= STATE_CLOSE
+        self.state ||= STATE_IDLE
         self.matched_count ||= 0
         self.accepted_count ||= 0
         self.match_distance ||= 0
