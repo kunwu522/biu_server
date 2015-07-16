@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715055045) do
+ActiveRecord::Schema.define(version: 20150716031112) do
 
   create_table "communications", force: :cascade do |t|
     t.integer  "sender_id",   limit: 4
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150715055045) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "devices", ["token", "user_id"], name: "index_devices_on_token_and_user_id", unique: true, using: :btree
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
 
   create_table "partners", force: :cascade do |t|

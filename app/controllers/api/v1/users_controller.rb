@@ -17,7 +17,9 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
-            system("sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}")
+            if (ENV['RAILS_ENV'] == 'production')
+                system("sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}")
+            end
             user_response = {
                 'user_id' => @user.id,
                 'username' => @user.username,
