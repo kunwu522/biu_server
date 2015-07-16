@@ -10,7 +10,7 @@ class Api::V1::PasscodesController < ApplicationController
       messagexsend = MessageXSend.new(message_config)
       messagexsend.add_to(params[:phone_number])
       messagexsend.set_project("yy0u4")
-      messagexsend.add_var("passcode", params[:passcode][:code])
+      messagexsend.add_var("passcode", params[:code])
       response = messagexsend.message_xsend()
       puts response
       result = JSON.parse(response)
