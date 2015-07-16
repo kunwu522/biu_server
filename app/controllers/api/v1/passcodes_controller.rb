@@ -1,6 +1,5 @@
 require 'submail'
 class Api::V1::PasscodesController < ApplicationController
-    before_action :current_user?
     
     def create
       message_config = {}
@@ -28,4 +27,5 @@ class Api::V1::PasscodesController < ApplicationController
     def passcode_params
       params.require(:passcode).permit(:phone_number)
     end
+    
 end
