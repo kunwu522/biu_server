@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :current_user?, except: :create
+    before_action :current_user?, except: [:create,:forgot_password]
     
     def show
         @user = User.find(params[:id])
@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
                 'username' => @user.username,
                 'phone' => @user.phone
             }
-            render json: user_response
+            render json: user_response, status: 200
         else
             render json: @user.errors.full_messages, status: :unprocessable_entity
         end
@@ -34,6 +34,26 @@ class Api::V1::UsersController < ApplicationController
     def search
         @user = User.find_by(email: params[:email].downcase)
         respond_with(@user)
+    end
+    
+    def forgot_password
+        user = User.find_by(params[:phone])
+        if !user
+            error = {"error_message" => I18n.t('user_not_exist')}
+            render json: error, status: 404
+            return
+        end
+        
+        if user.update_attributes(update_password_params)
+            if (ENV['RAILS_ENV'] == 'production')
+                system("sudo ejabberdctl unregister #{user.phone} biulove.com")
+                system("sudo ejabberdctl register #{user.phone} biulove.com #{params[:user][:password]}")
+            end
+            puts "password reset: #{params[:user][:password]}"
+            render json: "", status: 200
+        else
+            render json: user.errors.full_messages, status: 500
+        end
     end
     
     def update
@@ -96,6 +116,10 @@ class Api::V1::UsersController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:username, :phone, :password, :password_confirmation, :email)
+    end
+    
+    def update_password_params
+        params.require(:user).permit(:password, :password_confirmation)
     end
 
     def query_params

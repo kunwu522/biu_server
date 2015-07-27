@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
     has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
     has_many :matchers, through: :preferences, source: :matcher
     has_many :active_communications, class_name: "Communication", foreign_key: "sender_id", dependent: :destroy
-    has_one :receiver, through: :active_communications, source: :receiver
+    has_many :receivers, through: :active_communications, source: :receiver
     has_many :passive_communications, class_name: "Communication", foreign_key: "receiver_id", dependent: :destroy
-    has_one :sender, through: :passive_communications, source: :sender
+    has_many :senders, through: :passive_communications, source: :sender
     mount_uploader :avatar_cycle, AvatarUploader
     mount_uploader :avatar_rectangle, AvatarUploader
     
@@ -125,9 +125,10 @@ class User < ActiveRecord::Base
     
     #Event
     def stop
-        if self.state == STATE_MATCHING
-            update_attribute(:state, STATE_IDLE)
-        end
+        # if self.state == STATE_MATCHING
+        #     update_attribute(:state, STATE_IDLE)
+        # end
+        update_attribute(:state, STATE_IDLE)
     end
     
     def start_matching
@@ -273,10 +274,11 @@ class User < ActiveRecord::Base
             device_token = self.device.token
         end
         
-        user = {"user_id" => self.id, 
+        user = {"user_id" => self.id,
+                  "phone" => self.phone, 
                "username" => self.username,
-       "avatar_cycle_url" => self.avatar_cycle.url,
-   "avatar_rectangle_url" => self.avatar_rectangle.url, 
+   #     "avatar_cycle_url" => self.avatar_cycle.url,
+   # "avatar_rectangle_url" => self.avatar_rectangle.url,
            "device_token" => device_token,
                 "profile" => profile,
                 "partner" => partner}

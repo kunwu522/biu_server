@@ -69,6 +69,7 @@ Rails.application.routes.draw do
                 post 'passcode' => 'passcodes#create'
                 put 'location/:id' => 'matches#update'
                 put 'match/:id' => 'matches#match'
+                put 'password/:phone' => 'users#forgot_password'
                 scope "(:shape)", shape:/rect|cycle/ do
                     post 'avatar/:id' => 'users#upload'
                     get 'avatar/:id' => 'users#download'
@@ -79,6 +80,7 @@ Rails.application.routes.draw do
                 resources :profiles
                 resources :partners
                 resources :devices
+                post 'suggestions' => 'suggestions#create'
             end
           end
     end

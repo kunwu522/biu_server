@@ -48,7 +48,7 @@ class Api::V1::MatchesController < ApplicationController
                     render json: "", statue: 404
                 end
             when User::EVENT_TIMEOUT
-                user.timout
+                user.timeout
                 render json: "", statue: 200
             when User::EVENT_CLOSE
                 matched_user = User.find(params[:match][:matched_user_id])

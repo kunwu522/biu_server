@@ -19,7 +19,11 @@ module NotificationsHelper
         end
         
         alert = I18n.t('match_push_notification_alert')
-        payload = {"matched_user" => matched_user.to_hash}
+        if (ENV['RAILS_ENV'] == 'production')
+            payload = {"matched_user" => matched_user.to_hash}
+        else
+            payload = matched_user.to_hash
+        end
         puts "send matched notification"
         push_notification(user.device.token, alert, payload, category: "MATCHED", content_available: false)
     end
@@ -65,9 +69,9 @@ module NotificationsHelper
         else
             notification = {"aps" => {"alert" => alert, "badge" => badge, "category" => category, "content_available" => content_available},
                             "matched_user" => payload}
-            command = "echo -n #{notification.to_json} | nc -4u -w1 192.168.1.100 9930"
+            command = "echo -n '#{notification.to_json}' | nc -4u -w1 192.168.1.100 9930"
             puts "#{command}"
-            system command
+            # system(command)
         end
         
     end
