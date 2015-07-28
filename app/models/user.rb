@@ -190,6 +190,9 @@ class User < ActiveRecord::Base
         if self.state == STATE_COMMUNICATION
             self.update_attribute(:state, STATE_IDLE)
             stop_communication(matched_user)
+            if matched_user.state == STATE_COMMUNICATION
+                push_user_close_conversation_notification(matched_user)
+            end
         end
     end
     

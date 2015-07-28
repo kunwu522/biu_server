@@ -8,3 +8,4 @@ cn:
     match_push_notification_alert: "恭喜，为您找到了心动的人"
     matched_user_accepted: "对方已经接受了你，快去跟Ta聊天吧"
     matched_user_rejected: "对方取消了本次匹配，快去需找下一个Ta"
+    user_close_conversation: "对方关闭的通话"

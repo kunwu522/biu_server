@@ -44,6 +44,14 @@ module NotificationsHelper
         push_notification(user.device.token, alert, nil, category: "MATCH_REJECTED", content_available: false)
     end
     
+    def push_user_close_conversation_notification(user)
+        if !user
+            return;
+        end
+        alert = I18n.t('user_close_conversation')
+        push_notification(user.device.token, alert, nil, category: "CONVERSATION_CLOSE", content_available: false)
+    end
+    
     def push_message_notification()
         
     end
