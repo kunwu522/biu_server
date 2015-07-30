@@ -280,6 +280,8 @@ class User < ActiveRecord::Base
         user = {"user_id" => self.id,
                   "phone" => self.phone, 
                "username" => self.username,
+               "open_id" => self.open_id,
+               "avatar_url" => self.avatar_url,
    #     "avatar_cycle_url" => self.avatar_cycle.url,
    # "avatar_rectangle_url" => self.avatar_rectangle.url,
            "device_token" => device_token,

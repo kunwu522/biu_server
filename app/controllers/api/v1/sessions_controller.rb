@@ -18,6 +18,28 @@ class Api::V1::SessionsController < ApplicationController
         end
     end
     
+    def create_third_party
+        @user = User.find_by(open_id: params[:user][:open_id])
+        if @user
+            log_in @user
+            remember @user
+            render json: @user.to_hash, status: 201
+        else
+            @user = User.new(username: params[:user][:username], open_id: params[:user][:open_id], avatar_url: params[:user][:avatar_url])
+            if @user.save(validate: false)
+                log_in @user
+                remember @user
+                response = {"user_id" => @user.id,
+                            "open_id" => @user.open_id, 
+                            "username" => @user.username,
+                            "avatar_url" => @user.avatar_url}
+                render json: response, status: 201
+            else
+                render json: "", status: 500
+            end
+        end
+    end
+    
     def destroy
         log_out
         response = {'status' => 'ok',

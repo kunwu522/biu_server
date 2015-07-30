@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727121552) do
+ActiveRecord::Schema.define(version: 20150730075821) do
 
   create_table "communications", force: :cascade do |t|
     t.integer  "sender_id",   limit: 4
@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(version: 20150727121552) do
     t.integer  "match_distance",   limit: 4
     t.string   "avatar_rectangle", limit: 255
     t.string   "avatar_cycle",     limit: 255
+    t.string   "open_id",          limit: 255
+    t.string   "avatar_url",       limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
