@@ -1,9 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :current_user?, except: [:create,:forgot_password]
+    # before_action :current_user?, except: [:create,:forgot_password]
     
     def show
         @user = User.find(params[:id])
-        render json:@user.to_hash, status: 200
+        render json: @user.to_hash, status: 200
     end
     
     def create
