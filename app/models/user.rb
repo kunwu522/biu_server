@@ -142,6 +142,7 @@ class User < ActiveRecord::Base
             matched_count = self.matched_count + 1
             self.update_attribute(:state, STATE_MATCHED)
             self.update_attribute(:matched_count, matched_count)
+            Rails.logger.debug { "Start to send notifiction to #{self.username}." }
             push_match_notification(self, other_user)
         end
     end

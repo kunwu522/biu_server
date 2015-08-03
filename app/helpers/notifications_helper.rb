@@ -63,7 +63,7 @@ module NotificationsHelper
         
         if (ENV['RAILS_ENV'] == 'production')
             apn = Houston::Client.development
-            apn.certificate = File.read("/home/deploy/certification/apple_push_notification.pem")
+            apn.certificate = File.read("/home/deploy/certification/apple_push_notification_development.pem")
         
             notification = Houston::Notification.new(device: token)
             notification.alert = alert
