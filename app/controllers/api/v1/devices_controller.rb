@@ -2,16 +2,11 @@ class Api::V1::DevicesController < ApplicationController
     before_action :current_user?
     
     def create
-        device = Device.find_by(token: params[:device][:token])
+        device = Device.find_by(user_id: params[:device][:user_id])
         if device
-            if device.user.id == params[:device][:user_id]
-                render json: "", statue: 200
-                return;
-            else
-                device.update_attribute(:user_id, params[:device][:user_id])
-                render json: "", statue: 200
-                return;
-            end
+            device.update_attribute(:token, params[:device][:token])
+            render json: "", statue: 200
+            return;
         end
         
         device = Device.new(device_params)

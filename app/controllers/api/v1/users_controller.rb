@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    # before_action :current_user?, except: [:create,:forgot_password]
+    before_action :current_user?, except: [:create,:forgot_password]
     
     def show
         @user = User.find(params[:id])
@@ -20,11 +20,9 @@ class Api::V1::UsersController < ApplicationController
             if (ENV['RAILS_ENV'] == 'production')
                 system("sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}")
             end
-            user_response = {
-                'user_id' => @user.id,
-                'username' => @user.username,
-                'phone' => @user.phone
-            }
+            user_response = {"user" => {"user_id" => @user.id,
+                                        "username" => @user.username,
+                                        "phone" => @user.phone}}
             render json: user_response, status: 200
         else
             render json: @user.errors.full_messages, status: :unprocessable_entity
