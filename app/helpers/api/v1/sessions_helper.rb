@@ -8,6 +8,7 @@ module Api::V1::SessionsHelper
     def log_out
         forget(current_user)
         session.delete(:user_id)
+        @current_user.device.destroy
         @current_user = nil;
     end
     
