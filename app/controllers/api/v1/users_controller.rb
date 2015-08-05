@@ -47,10 +47,30 @@ class Api::V1::UsersController < ApplicationController
                 system("sudo ejabberdctl unregister #{user.phone} biulove.com")
                 system("sudo ejabberdctl register #{user.phone} biulove.com #{params[:user][:password]}")
             end
-            puts "password reset: #{params[:user][:password]}"
             render json: "", status: 200
         else
             render json: user.errors.full_messages, status: 500
+        end
+    end
+    
+    def reset_password
+        user = User.find(params[:id])
+        if !user
+            error = {"error_message" => I18n.t('user_not_exist')}
+            render json: error, status: 404
+            return
+        end
+        if user.authenticate(params[:user][:old_password])
+            if user.update_attributes(update_password_params)
+                if (ENV['RAILS_ENV'] == 'production')
+                    system("sudo ejabberdctl unregister #{user.phone} biulove.com")
+                    system("sudo ejabberdctl register #{user.phone} biulove.com #{params[:user][:password]}")
+                end
+                render json: "", status: 200
+            end
+        else
+            error = {"error_message" => I18n.t('invalid_password')}
+            render json: error, status: 401
         end
     end
     

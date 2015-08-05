@@ -23,6 +23,7 @@ class Api::V1::SessionsController < ApplicationController
         if @user
             log_in @user
             remember @user
+            @user.update_attributes(third_party_login_params)
             render json: {"user" => @user.to_hash}, status: 201
         else
             @user = User.new(username: params[:user][:username], open_id: params[:user][:open_id], avatar_url: params[:user][:avatar_url])
@@ -48,6 +49,10 @@ class Api::V1::SessionsController < ApplicationController
     end
     
     private
+    def third_party_login_params
+        params.require(:user).permit(:open_id, :avatar_url, :username)
+    end
+    
     def build_respones
         profile = nil
         if @user.profile

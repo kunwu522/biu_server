@@ -71,6 +71,7 @@ Rails.application.routes.draw do
                 put 'location/:id' => 'matches#update'
                 put 'match/:id' => 'matches#match'
                 put 'password/:phone' => 'users#forgot_password'
+                put 'resetpassword/:id' => 'users#reset_password'
                 scope "(:shape)", shape:/rect|cycle/ do
                     post 'avatar/:id' => 'users#upload'
                     get 'avatar/:id' => 'users#download'
