@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
     has_one :profile, dependent: :destroy
     has_one :partner, dependent: :destroy
     has_one :device, dependent: :destroy
-    has_many :preferences, class_name: "Preference", foreign_key: "matched_id", dependent: :destroy
-    has_many :matchers, through: :preferences, source: :matcher
+    has_many :preferences, class_name: "Preference", foreign_key: "user_id", dependent: :destroy
+    has_many :candidates, through: :preferences, source: :candidate
+    has_many :couples, class_name: "Couple", foreign_key: "matched_id", dependent: :destroy
+    has_many :matchers, through: :couples, source: :matcher
     has_many :active_communications, class_name: "Communication", foreign_key: "sender_id", dependent: :destroy
     has_many :receivers, through: :active_communications, source: :receiver
     has_many :passive_communications, class_name: "Communication", foreign_key: "receiver_id", dependent: :destroy
@@ -113,13 +115,13 @@ class User < ActiveRecord::Base
     # Preferences add
     def prefer(other_user)
         if other_user
-            preferences.create(matcher_id: other_user.id)
+            preferences.create(candidate_id: other_user.id)
         end
     end
     # Preferences remove
     def unprefer(other_user)
         if other_user
-            preferences.find_by(matcher_id: other_user.id).destroy
+            preferences.find_by(candidate_id: other_user.id).destroy
         end
     end
     
@@ -129,6 +131,11 @@ class User < ActiveRecord::Base
         #     update_attribute(:state, STATE_IDLE)
         # end
         update_attribute(:state, STATE_IDLE)
+        if self.couple
+            if self.couple.state == Couple::COUPLE_STATE_START
+                self.couple.nothing_happened
+            end
+        end
     end
     
     def start_matching
@@ -142,6 +149,7 @@ class User < ActiveRecord::Base
             matched_count = self.matched_count + 1
             self.update_attribute(:state, STATE_MATCHED)
             self.update_attribute(:matched_count, matched_count)
+            self.couples.create(matcher_id: other_user.id, distance: distance(other_user))
             Rails.logger.debug { "Start to send notifiction to #{self.username}." }
             push_match_notification(self, other_user)
         end
@@ -151,11 +159,12 @@ class User < ActiveRecord::Base
         if self.state == STATE_MATCHED
             if matched_user.state == STATE_WAITING_ACCEPTED
                 self.update_attribute(:state, STATE_COMMUNICATION)
+                self.couple.chat
                 self.start_communication(matched_user)
             else
                 self.update_attribute(:state, STATE_WAITING_ACCEPTED)
             end
-            matched_user.matched_user_accepted(matched_user)
+            matched_user.matched_user_accepted(self)
             push_matched_user_accepted_notification(matched_user)
         end
     end
@@ -163,6 +172,7 @@ class User < ActiveRecord::Base
     def reject(matched_user)
         if self.state == STATE_MATCHED || self.state == STATE_WAITING_ACCEPTED
             self.update_attribute(:state, STATE_MATCHING)
+            self.couple.nothing_happened
             matched_user.matched_user_rejected
             push_matched_user_rejected_notification(matched_user)
         end
@@ -171,6 +181,7 @@ class User < ActiveRecord::Base
     def matched_user_accepted(matched_user)
         if self.state == STATE_WAITING_ACCEPTED
             self.update_attribute(:state, STATE_COMMUNICATION)
+            self.couple.chat
             start_communication(matched_user)
         end
     end
@@ -178,12 +189,15 @@ class User < ActiveRecord::Base
     def matched_user_rejected
         if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
             self.update_attribute(:state, STATE_MATCHING)
+            self.couple.nothing_happened
         end
     end
     
     def timeout
         if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
             self.update_attribute(:state, STATE_MATCHING)
+            self.couple.timeout
+            self.matcher.couple.timeout
         end
     end
     
@@ -191,6 +205,7 @@ class User < ActiveRecord::Base
         if self.state == STATE_COMMUNICATION
             self.update_attribute(:state, STATE_IDLE)
             stop_communication(matched_user)
+            self.couple.date
             if matched_user.state == STATE_COMMUNICATION
                 push_user_close_conversation_notification(matched_user)
             end
@@ -291,10 +306,36 @@ class User < ActiveRecord::Base
         return user
     end
     
+    def couple
+        self.couples.where.not(state: Couple::COUPLE_STATE_FINISH).first
+    end
+    
     private
     def age(birthday)
         now = Time.now.utc.to_date
         now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+    end
+    
+    def distance(other_user)
+        dtor = Math::PI / 180
+        r = 6378.1 * 1000
+        
+        rlat1 = self.latitude * dtor
+        rlong1 = self.longitude * dtor
+        rlat2 = other_user.latitude * dtor
+        rlong2 = other_user.longitude * dtor
+        
+        dlong = rlong1 - rlong2
+        dlat = rlat1 - rlat2
+        
+        a = power(Math::sin(dlat/2), 2) + Math::cos(rlat1) * Math::cos(rlat2) * power(Math::sin(dlong/2), 2)
+        c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+        d = r * c
+        return d
+    end
+    
+    def power(num, pow)
+        num ** pow
     end
     
     def default_values

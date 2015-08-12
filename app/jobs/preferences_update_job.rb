@@ -3,7 +3,7 @@ class PreferencesUpdateJob < ActiveJob::Base
 
   def perform(user)
     # Do something later
-    prefer_users = user.prefer_users - user.matchers
+    prefer_users = user.prefer_users - user.candidates
     if prefer_users.count > 0
         prefer_users.each do |prefer_matching_user|
              user.prefer(prefer_matching_user)

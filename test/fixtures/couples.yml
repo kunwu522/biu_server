@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  matched_id: 
+  matcher_id: 
+  state: 1
+  result: 1
+
+two:
+  matched_id: 
+  matcher_id: 
+  state: 1
+  result: 1

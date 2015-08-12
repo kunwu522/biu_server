@@ -70,6 +70,7 @@ Rails.application.routes.draw do
                 post 'tplogin' => 'sessions#create_third_party'
                 put 'location/:id' => 'matches#update'
                 put 'match/:id' => 'matches#match'
+                get 'match/:id' => 'matches#show'
                 put 'password/:phone' => 'users#forgot_password'
                 put 'resetpassword/:id' => 'users#reset_password'
                 scope "(:shape)", shape:/rect|cycle/ do

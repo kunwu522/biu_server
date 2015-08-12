@@ -8,7 +8,7 @@ namespace :biu do
         matching_users = User.where(state: User::STATE_MATCHING).order(:match_distance).to_a
         if matching_users && matching_users.count > 0
             matching_users.each do |matching_user|
-                prefer_users = matching_user.matchers.where(state: User::STATE_MATCHING)
+                prefer_users = matching_user.candidates.where(state: User::STATE_MATCHING)
                 if prefer_users && prefer_users.count > 0
                     prefer_users_ids = "#{prefer_users.ids}".gsub(/\[/, "(").gsub(/\]/, ")")
                     matched_user = User.find_by_sql("SELECT *, (6378.1 * 1000 * acos(cos(radians(#{matching_user.latitude})) 
@@ -46,8 +46,8 @@ namespace :biu do
         users.each do |user|
             # new_prefer_users = user.prefer_users
             # old_prefer_users = user.matcher
-            should_unprefer_users = user.matchers - user.prefer_users
-            should_prefer_users = user.prefer_users - user.matchers
+            should_unprefer_users = user.candidates - user.prefer_users
+            should_prefer_users = user.prefer_users - user.candidates
             if should_unprefer_users.count > 0
                 should_unprefer_users.each do |unprefer_user|
                     user.unprefer(unprefer_user)

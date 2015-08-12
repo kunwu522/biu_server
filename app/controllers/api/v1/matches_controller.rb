@@ -1,5 +1,24 @@
 class Api::V1::MatchesController < ApplicationController
-    before_action :current_user?
+    # before_action :current_user?
+    
+    def show
+        user = User.find(params[:id])
+        if user
+            couple = user.couples.where(state: Couple::COUPLE_STATE_START).first
+            if couple
+                response = {"state" => couple.state,
+                         "distance" => couple.distance,
+                             "user" => {"state" => user.state},
+                     "matched_user" => couple.matcher.to_hash}
+                render json: response, statue: 200
+            else
+                response = {"user" => {"state" => user.state}}
+                render json: response, status: 200
+            end
+        else
+            render json: "", status: 404
+        end
+    end
     
     def update
         user = User.find(params[:id])

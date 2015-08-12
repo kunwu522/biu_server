@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730075821) do
+ActiveRecord::Schema.define(version: 20150806074541) do
 
   create_table "communications", force: :cascade do |t|
     t.integer  "sender_id",   limit: 4
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 20150730075821) do
   add_index "communications", ["receiver_id"], name: "index_communications_on_receiver_id", using: :btree
   add_index "communications", ["sender_id", "receiver_id"], name: "index_communications_on_sender_id_and_receiver_id", unique: true, using: :btree
   add_index "communications", ["sender_id"], name: "index_communications_on_sender_id", using: :btree
+
+  create_table "couples", force: :cascade do |t|
+    t.integer  "matched_id", limit: 4
+    t.integer  "matcher_id", limit: 4
+    t.integer  "state",      limit: 4
+    t.integer  "result",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "distance",   limit: 4
+  end
+
+  add_index "couples", ["matched_id", "matcher_id"], name: "index_couples_on_matched_id_and_matcher_id", using: :btree
+  add_index "couples", ["matched_id"], name: "index_couples_on_matched_id", using: :btree
+  add_index "couples", ["matcher_id"], name: "index_couples_on_matcher_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "token",      limit: 255
@@ -71,15 +85,15 @@ ActiveRecord::Schema.define(version: 20150730075821) do
   add_index "partners_zodiacs", ["zodiac_id"], name: "index_partners_zodiacs_on_zodiac_id", using: :btree
 
   create_table "preferences", force: :cascade do |t|
-    t.integer  "matched_id", limit: 4
-    t.integer  "matcher_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "user_id",      limit: 4
+    t.integer  "candidate_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "preferences", ["matched_id", "matcher_id"], name: "index_preferences_on_matched_id_and_matcher_id", unique: true, using: :btree
-  add_index "preferences", ["matched_id"], name: "index_preferences_on_matched_id", using: :btree
-  add_index "preferences", ["matcher_id"], name: "index_preferences_on_matcher_id", using: :btree
+  add_index "preferences", ["candidate_id"], name: "index_preferences_on_candidate_id", using: :btree
+  add_index "preferences", ["user_id", "candidate_id"], name: "index_preferences_on_user_id_and_candidate_id", unique: true, using: :btree
+  add_index "preferences", ["user_id"], name: "index_preferences_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.date     "birthday"
@@ -148,6 +162,8 @@ ActiveRecord::Schema.define(version: 20150730075821) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "couples", "users", column: "matched_id"
+  add_foreign_key "couples", "users", column: "matcher_id"
   add_foreign_key "devices", "users"
   add_foreign_key "partners", "users"
   add_foreign_key "profiles", "sexualities"

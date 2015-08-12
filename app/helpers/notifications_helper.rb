@@ -13,8 +13,6 @@ module NotificationsHelper
     #     push_notification(user2.device.token, alert, payload2, category: "MATCHED", content_available: false)
     # end
     
-    I18n.locale = :cn
-    
     def push_match_notification(user, matched_user)
         if !user && !matched_user
             return;

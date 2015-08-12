@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
     
     def show
         @user = User.find(params[:id])
-        render json: @user.to_hash, status: 200
+        render json: {"user" => @user.to_hash}, status: 200
     end
     
     def create
