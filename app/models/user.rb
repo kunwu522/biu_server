@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     validates :username, presence: true, length: { maximum: 50 }
 
     VALID_PHONE_REGEX = /[0-9]{11}/
-    validates :phone, presence: true, length: {minimum: 11, maximum: 11},
+    validates :phone, length: {minimum: 11, maximum: 11},
                           uniqueness: true, format: { with: VALID_PHONE_REGEX }
     
     has_secure_password
@@ -133,7 +133,7 @@ class User < ActiveRecord::Base
         update_attribute(:state, STATE_IDLE)
         if self.couple
             if self.couple.state == Couple::COUPLE_STATE_START
-                self.couple.nothing_happened
+                self.couple.reject
             end
         end
     end
@@ -172,7 +172,7 @@ class User < ActiveRecord::Base
     def reject(matched_user)
         if self.state == STATE_MATCHED || self.state == STATE_WAITING_ACCEPTED
             self.update_attribute(:state, STATE_MATCHING)
-            self.couple.nothing_happened
+            self.couple.reject
             matched_user.matched_user_rejected
             push_matched_user_rejected_notification(matched_user)
         end
@@ -189,7 +189,7 @@ class User < ActiveRecord::Base
     def matched_user_rejected
         if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
             self.update_attribute(:state, STATE_MATCHING)
-            self.couple.nothing_happened
+            self.couple.been_reject
         end
     end
     

@@ -14,8 +14,9 @@ class Couple < ActiveRecord::Base
     # Couple Result
     COUPLE_RESULT_NONE = 0
     COUPLE_RESULT_DATE = 1
-    COUPLE_RESULT_NOTHING_HAPPENED = 2
-    COUPLE_RESULT_TIMEOUT = 3
+    COUPLE_RESULT_REJECT = 2
+    COUPLE_RESULT_BEEN_REJECTED = 3
+    COUPLE_RESULT_TIMEOUT = 4
     
     def chat
         self.update_attribute(:state, COUPLE_STATE_COMMUNICATION)
@@ -27,9 +28,14 @@ class Couple < ActiveRecord::Base
         self.update_attribute(:result, COUPLE_RESULT_DATE)
     end
     
-    def nothing_happened
+    def reject
         self.update_attribute(:state, COUPLE_STATE_FINISH)
-        self.update_attribute(:result, COUPLE_RESULT_NOTHING_HAPPENED)
+        self.update_attribute(:result, COUPLE_RESULT_REJECT)
+    end
+    
+    def been_rejected
+        self.update_attribute(:state, COUPLE_STATE_FINISH)
+        self.update_attribute(:result, COUPLE_STATE_BEEN_REJECTED)
     end
     
     def timeout

@@ -7,6 +7,7 @@ class Api::V1::MatchesController < ApplicationController
             couple = user.couples.where(state: Couple::COUPLE_STATE_START).first
             if couple
                 response = {"state" => couple.state,
+                            "result"=> couple.result,
                          "distance" => couple.distance,
                              "user" => {"state" => user.state},
                      "matched_user" => couple.matcher.to_hash}
