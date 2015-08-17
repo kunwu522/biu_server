@@ -19,14 +19,14 @@ class User < ActiveRecord::Base
     mount_uploader :avatar_cycle, AvatarUploader
     mount_uploader :avatar_rectangle, AvatarUploader
     
-    validates :username, presence: true, length: { maximum: 50 }
+    validates :username, presence: true, length: { maximum: 16 }
 
     VALID_PHONE_REGEX = /[0-9]{11}/
     validates :phone, length: {minimum: 11, maximum: 11},
                           uniqueness: true, format: { with: VALID_PHONE_REGEX }
     
     has_secure_password
-    validates :password, length: { minimum: 8 }, :if => :should_validate_password? 
+    validates :password, length: { minimum: 6 }, :if => :should_validate_password? 
     
     STATE_IDLE = 0
     STATE_MATCHING = 1
@@ -61,6 +61,7 @@ class User < ActiveRecord::Base
     
     # Returns true if the given token matches the digest
     def authenticated?(remember_token)
+        puts "remember token: #{remember_token}, remember digest: #{remember_digest}"
         BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
     
@@ -296,8 +297,9 @@ class User < ActiveRecord::Base
         user = {"user_id" => self.id,
                   "phone" => self.phone, 
                "username" => self.username,
-               "open_id" => self.open_id,
-               "avatar_url" => self.avatar_url,
+                "open_id" => self.open_id,
+             "avatar_url" => self.avatar_url,
+       "avatar_large_url" => self.avatar_large_url,
    #     "avatar_cycle_url" => self.avatar_cycle.url,
    # "avatar_rectangle_url" => self.avatar_rectangle.url,
            "device_token" => device_token,

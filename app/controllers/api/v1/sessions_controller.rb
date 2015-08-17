@@ -24,6 +24,7 @@ class Api::V1::SessionsController < ApplicationController
             log_in @user
             remember @user
             @user.update_attribute(:avatar_url, params[:user][:avatar_url])
+            @user.update_attribute(:avatar_large_url, params[:user][:avatar_large_url])
             @user.update_attribute(:username, params[:user][:username])
             render json: {"user" => @user.to_hash}, status: 201
         else
