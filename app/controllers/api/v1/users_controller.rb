@@ -17,6 +17,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
+            remember @user
             if (ENV['RAILS_ENV'] == 'production')
                 system("sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}")
             end
