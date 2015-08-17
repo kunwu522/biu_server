@@ -4,7 +4,7 @@ class Api::V1::MatchesController < ApplicationController
     def show
         user = User.find(params[:id])
         if user
-            couple = user.couples.where(state: Couple::COUPLE_STATE_START).first
+            couple = user.couples.where.not(state: Couple::COUPLE_STATE_FINISH).first
             if couple
                 response = {"state" => couple.state,
                             "result"=> couple.result,
