@@ -190,7 +190,7 @@ class User < ActiveRecord::Base
     def matched_user_rejected
         if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
             self.update_attribute(:state, STATE_MATCHING)
-            self.couple.been_reject
+            self.couple.been_rejected
         end
     end
     

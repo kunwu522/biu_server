@@ -24,7 +24,6 @@ module NotificationsHelper
         else
             payload = matched_user.to_hash
         end
-        puts "send matched notification"
         push_notification(user.device.token, alert, payload, category: "UPDATE_MATCH_INFO", content_available: false)
     end
     
@@ -33,6 +32,7 @@ module NotificationsHelper
             return;
         end
         alert = I18n.t('matched_user_accepted')
+        Rails.logger.debug { "Send accept message to #{user.username}" }
         push_notification(user.device.token, alert, nil, category: "UPDATE_MATCH_INFO", content_available: false)
     end
     
@@ -41,6 +41,7 @@ module NotificationsHelper
             return;
         end
         alert = I18n.t('matched_user_rejected')
+        Rails.logger.debug { "Send reject message to #{user.username}" }
         push_notification(user.device.token, alert, nil, category: "UPDATE_MATCH_INFO", content_available: false)
     end
     
@@ -49,6 +50,7 @@ module NotificationsHelper
             return;
         end
         alert = I18n.t('user_close_conversation')
+        Rails.logger.debug { "Send close message to #{user.username}" }
         push_notification(user.device.token, alert, nil, category: "CONVERSATION_CLOSE", content_available: false)
     end
     
