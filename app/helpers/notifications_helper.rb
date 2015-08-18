@@ -33,7 +33,7 @@ module NotificationsHelper
         end
         alert = I18n.t('matched_user_accepted')
         Rails.logger.debug { "Send accept message to #{user.username}" }
-        push_notification(user.device.token, alert, nil, category: "UPDATE_MATCH_INFO", content_available: false)
+        push_notification(user.device.token, alert, nil, category: "MATCH_ACCEPTED", content_available: false)
     end
     
     def push_matched_user_rejected_notification(user)
@@ -42,7 +42,7 @@ module NotificationsHelper
         end
         alert = I18n.t('matched_user_rejected')
         Rails.logger.debug { "Send reject message to #{user.username}" }
-        push_notification(user.device.token, alert, nil, category: "UPDATE_MATCH_INFO", content_available: false)
+        push_notification(user.device.token, alert, nil, category: "MATCH_REJECTED", content_available: false)
     end
     
     def push_user_close_conversation_notification(user)
