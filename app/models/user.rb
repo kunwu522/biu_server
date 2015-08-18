@@ -300,6 +300,7 @@ class User < ActiveRecord::Base
                 "open_id" => self.open_id,
              "avatar_url" => self.avatar_url,
        "avatar_large_url" => self.avatar_large_url,
+                  "state" => self.state,
    #     "avatar_cycle_url" => self.avatar_cycle.url,
    # "avatar_rectangle_url" => self.avatar_rectangle.url,
            "device_token" => device_token,
