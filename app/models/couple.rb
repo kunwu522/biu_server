@@ -35,7 +35,7 @@ class Couple < ActiveRecord::Base
     
     def been_rejected
         self.update_attribute(:state, COUPLE_STATE_FINISH)
-        self.update_attribute(:result, COUPLE_STATE_BEEN_REJECTED)
+        self.update_attribute(:result, COUPLE_RESULT_BEEN_REJECTED)
     end
     
     def timeout
