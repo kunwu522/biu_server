@@ -18,6 +18,7 @@ module NotificationsHelper
             return;
         end
         
+        I18n.locale = :cn
         alert = I18n.t('match_push_notification_alert')
         if (ENV['RAILS_ENV'] == 'production')
             payload = {"matched_user" => matched_user.to_hash}
@@ -31,6 +32,7 @@ module NotificationsHelper
         if !user
             return;
         end
+        I18n.locale = :cn
         alert = I18n.t('matched_user_accepted')
         Rails.logger.debug { "Send accept message to #{user.username}" }
         push_notification(user.device.token, alert, nil, category: "MATCH_ACCEPTED", content_available: false)
@@ -40,6 +42,7 @@ module NotificationsHelper
         if !user
             return;
         end
+        I18n.locale = :cn
         alert = I18n.t('matched_user_rejected')
         Rails.logger.debug { "Send reject message to #{user.username}" }
         push_notification(user.device.token, alert, nil, category: "MATCH_REJECTED", content_available: false)
@@ -49,6 +52,7 @@ module NotificationsHelper
         if !user
             return;
         end
+        I18n.locale = :cn
         alert = I18n.t('user_close_conversation')
         Rails.logger.debug { "Send close message to #{user.username}" }
         push_notification(user.device.token, alert, nil, category: "CONVERSATION_CLOSE", content_available: false)
