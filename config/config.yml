@@ -1,0 +1,12 @@
+defaults: &defaults
+  local_ip: http://123.56.129.119
+  port: 80
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

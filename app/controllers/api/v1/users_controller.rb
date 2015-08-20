@@ -1,3 +1,5 @@
+require "socket"
+
 class Api::V1::UsersController < ApplicationController
     before_action :current_user?, except: [:create,:forgot_password]
     
@@ -89,10 +91,15 @@ class Api::V1::UsersController < ApplicationController
         puts "file: #{params[:avatar]}"
         attribute = params[:shape] == 'rect' ? 'avatar_rectangle' : 'avatar_cycle'
         if user.update_attribute(attribute, params[:avatar])
-            puts "rectangle avatar url: #{user.avatar_rectangle.url}"
-            puts "cycle avatar url: #{user.avatar_cycle.url}"
-            response = {"rectangle_url" => user.avatar_rectangle.url,
-                        "cycle_url" => user.avatar_cycle.url}
+            avatar_url = "#{APP_CONFIG['local_ip']}:#{APP_CONFIG['port']}/api/v1/#{params[:shape]}/avatar/#{params[:id]}"
+            puts "#{avatar_url}"
+            if params[:shape] == 'rect'
+                user.update_attribute(:avatar_large_url, avatar_url)
+            else
+                user.update_attribute(:avatar_url, avatar_url)
+            end
+            response = {"rectangle_url" => user.avatar_large_url,
+                        "cycle_url" => user.avatar_url}
             render json: response, status: 200
         else
             error = {"error_message" => I18n.t('upload_failed')}
@@ -143,6 +150,10 @@ class Api::V1::UsersController < ApplicationController
 
     def query_params
         params.permit(:user_id, :username, :email, :password)
+    end
+    
+    def local_ip
+        local_ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
     end
   
 end
