@@ -35,6 +35,7 @@ bower.json
 
 config/database.yml
 config/secrets.yml
+config/config.yml
 
 log/*
 
