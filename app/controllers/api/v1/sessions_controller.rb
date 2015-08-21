@@ -37,7 +37,7 @@ class Api::V1::SessionsController < ApplicationController
                 response = {"user" => {"user_id" => @user.id,
                                        "open_id" => @user.open_id, 
                                        "username" => @user.username,
-                                       "avatar_url" => @user.avatar_url
+                                       "avatar_url" => @user.avatar_url,
                                        "avatar_large_url" => @user.avatar_large_url}}
                 render json: response, status: 201
             else
