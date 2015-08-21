@@ -23,8 +23,10 @@ class Api::V1::SessionsController < ApplicationController
         if @user
             log_in @user
             remember @user
-            @user.update_attribute(:avatar_url, params[:user][:avatar_url])
-            @user.update_attribute(:avatar_large_url, params[:user][:avatar_large_url])
+            if !@user.avatar_url
+                @user.update_attribute(:avatar_url, params[:user][:avatar_url])
+                @user.update_attribute(:avatar_large_url, params[:user][:avatar_large_url])
+            end
             @user.update_attribute(:username, params[:user][:username])
             render json: {"user" => @user.to_hash}, status: 201
         else
@@ -35,7 +37,8 @@ class Api::V1::SessionsController < ApplicationController
                 response = {"user" => {"user_id" => @user.id,
                                        "open_id" => @user.open_id, 
                                        "username" => @user.username,
-                                       "avatar_url" => @user.avatar_url}}
+                                       "avatar_url" => @user.avatar_url
+                                       "avatar_large_url" => @user.avatar_large_url}}
                 render json: response, status: 201
             else
                 render json: "", status: 500

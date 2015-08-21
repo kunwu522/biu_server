@@ -98,8 +98,8 @@ class Api::V1::UsersController < ApplicationController
             else
                 user.update_attribute(:avatar_url, avatar_url)
             end
-            response = {"rectangle_url" => user.avatar_large_url,
-                        "cycle_url" => user.avatar_url}
+            response = {"avatar_large_url" => user.avatar_large_url,
+                        "avatar_url" => user.avatar_url}
             render json: response, status: 200
         else
             error = {"error_message" => I18n.t('upload_failed')}
