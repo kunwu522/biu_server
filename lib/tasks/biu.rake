@@ -46,8 +46,14 @@ namespace :biu do
         users.each do |user|
             # new_prefer_users = user.prefer_users
             # old_prefer_users = user.matcher
-            should_unprefer_users = user.candidates - user.prefer_users
-            should_prefer_users = user.prefer_users - user.candidates
+            should_unprefer_users = Array.new
+            should_prefer_users = Array.new
+            if user.prefer_users
+                should_unprefer_users = user.candidates - user.prefer_users
+                should_prefer_users = user.prefer_users - user.candidates
+            else
+                should_unprefer_users = user.candidates
+            end
             if should_unprefer_users.count > 0
                 should_unprefer_users.each do |unprefer_user|
                     user.unprefer(unprefer_user)
