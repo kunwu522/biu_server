@@ -1,5 +1,5 @@
 class Api::V1::MatchesController < ApplicationController
-    # before_action :current_user?
+    before_action :current_user?
     
     def show
         user = User.find(params[:id])
@@ -28,10 +28,11 @@ class Api::V1::MatchesController < ApplicationController
             render json: error, statue: 404
         end
         
-        if user.update_attributes(location_params)
+        if (user.update_attribute(:latitude, params[:location][:latitude]) \
+            && user.update_attribute(:longitude, params[:location][:longitude]))
             render json: "", statue: 200
         else
-            puts "#{Time.now}, error: #{user.errors.full_messages}"
+            Rails.logger.debug { "#{Time.now}, error: #{user.errors.full_messages}" }
             render json: user.errors.full_messages, statue: 500
         end
     end
