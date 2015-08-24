@@ -34,6 +34,11 @@ class Api::V1::SessionsController < ApplicationController
             if @user.save(validate: false)
                 log_in @user
                 remember @user
+                if (ENV['RAILS_ENV'] == 'production')
+                    system("sudo ejabberdctl register #{@user.open_id} biulove.com #{@user.open_id}")
+                else
+                    puts "sudo ejabberdctl register #{@user.open_id} biulove.com #{@user.open_id}"
+                end
                 response = {"user" => {"user_id" => @user.id,
                                        "open_id" => @user.open_id, 
                                        "username" => @user.username,

@@ -22,6 +22,8 @@ class Api::V1::UsersController < ApplicationController
             remember @user
             if (ENV['RAILS_ENV'] == 'production')
                 system("sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}")
+            else
+                puts "sudo ejabberdctl register #{@user.phone} biulove.com #{params[:user][:password]}"
             end
             user_response = {"user" => {"user_id" => @user.id,
                                         "username" => @user.username,
