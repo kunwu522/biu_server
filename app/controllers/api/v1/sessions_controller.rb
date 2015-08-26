@@ -30,7 +30,7 @@ class Api::V1::SessionsController < ApplicationController
             @user.update_attribute(:username, params[:user][:username])
             render json: {"user" => @user.to_hash}, status: 201
         else
-            @user = User.new(username: params[:user][:username], open_id: params[:user][:open_id], avatar_url: params[:user][:avatar_url], :avatar_large_url : params[:user][:avatar_large_url])
+            @user = User.new(username: params[:user][:username], open_id: params[:user][:open_id], avatar_url: params[:user][:avatar_url], avatar_large_url: params[:user][:avatar_large_url])
             if @user.save(validate: false)
                 log_in @user
                 remember @user
