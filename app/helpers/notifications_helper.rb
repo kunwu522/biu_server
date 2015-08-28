@@ -58,8 +58,13 @@ module NotificationsHelper
         push_notification(user.device.token, alert, nil, category: "CONVERSATION_CLOSE", content_available: false)
     end
     
-    def push_message_notification()
+    def push_message_notification(sender, receiver, type, content)
+        I18n.locale = :cn
+        alert = I18n.t('you_receive_new_message')
+        payload = {"message" => {"from" => sender.id, "to" => receiver.id, "type" => type, "content" => content}}
         
+        Rails.logger.debug { "#{Time.now}, #{sender.username} sending message to #{receiver.username}" }
+        push_notification(receiver.device.token, alert, payload, category: "MESSAGE", content_available: false)
     end
     
     def push_notification(token, alert, payload, badge: 0, sound: "sosumi.aiff", category: "MESSAGE_CATEGORY", content_available: true)
@@ -80,6 +85,21 @@ module NotificationsHelper
             notification.custom_data = payload
         
             apn.push(notification)
+            Rails.logger.debug("#{Time.now}, push message success.")
+        elsif (ENV['RAILS_ENV'] == 'test')
+            apn = Houston::Client.development
+            apn.certificate = File.read("/home/certification/apple_push_notification_development.pem")
+        
+            notification = Houston::Notification.new(device: token)
+            notification.alert = alert
+            notification.badge = badge
+            notification.sound = sound
+            notification.category = category
+            notification.content_available = content_available
+            notification.custom_data = payload
+        
+            apn.push(notification)
+            Rails.logger.debug("#{Time.now}, push message success.")
         else
             notification = {"aps" => {"alert" => alert, "badge" => badge, "category" => category, "content_available" => content_available},
                             "matched_user" => payload}

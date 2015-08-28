@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
             if (self_age >= user.partner.min_age && self_age <= user.partner.max_age && prefer_user_age >= self.partner.min_age && prefer_user_age <= self.partner.max_age)
                 result << user
             else
-                puts "age not match username: #{user.username}, age: #{prefer_user_age}"
+                Rails.logger.debug { "age not match username: #{user.username}, age: #{prefer_user_age}" }
             end
         end
         return result

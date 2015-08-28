@@ -84,6 +84,7 @@ Rails.application.routes.draw do
                 resources :partners
                 resources :devices
                 post 'suggestions' => 'suggestions#create'
+                post 'messages' => 'messages#create'
             end
           end
     end
