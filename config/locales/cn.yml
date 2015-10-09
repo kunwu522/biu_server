@@ -12,3 +12,5 @@ cn:
     matched_user_rejected: "对方取消了本次匹配，快去需找下一个Ta"
     user_close_conversation: "对方关闭的通话"
     you_receive_new_message: "收到新消息"
+    user_start_navigation: "Ta邀请您共享位置"
+    user_stop_navigation: "Ta停止了位置共享"

@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
     STATE_MATCHED = 2
     STATE_WAITING_ACCEPTED = 3
     STATE_COMMUNICATION = 4
+    STATE_NAVIGATION = 5
     
     EVENT_STOP = 0
     EVENT_START_MATCHING = 1
@@ -40,6 +41,8 @@ class User < ActiveRecord::Base
     EVENT_REJECT = 3
     EVENT_TIMEOUT = 4
     EVENT_CLOSE = 5
+    EVENT_START_NAVIGATION = 6
+    EVENT_STOP_NAVIGATION = 7
     
     # Return the hash digest of the given string
     def User.digest(string)
@@ -171,6 +174,11 @@ class User < ActiveRecord::Base
     end
     
     def reject(matched_user)
+        if matched_user.state != STATE_MATCHED && matched_user.state != STATE_WAITING_ACCEPTED
+            self.update_attribute(:state, STATE_MATCHING)
+            return
+        end
+        
         if self.state == STATE_MATCHED || self.state == STATE_WAITING_ACCEPTED
             self.update_attribute(:state, STATE_MATCHING)
             self.couple.reject
@@ -189,7 +197,7 @@ class User < ActiveRecord::Base
     
     def matched_user_rejected
         if self.state == STATE_WAITING_ACCEPTED || self.state == STATE_MATCHED
-            self.update_attribute(:state, STATE_MATCHING)
+            # self.update_attribute(:state, STATE_MATCHING)
             self.couple.been_rejected
         end
     end
@@ -203,12 +211,30 @@ class User < ActiveRecord::Base
     end
     
     def close(matched_user)
-        if self.state == STATE_COMMUNICATION
+        if self.state == STATE_COMMUNICATION || self.state == STATE_NAVIGATION
             self.update_attribute(:state, STATE_IDLE)
             stop_communication(matched_user)
             self.couple.date
-            if matched_user.state == STATE_COMMUNICATION
+            if matched_user && (matched_user.state == STATE_COMMUNICATION || matched_user.state == STATE_NAVIGATION)
                 push_user_close_conversation_notification(matched_user)
+            end
+        end
+    end
+    
+    def start_navigation(matched_user)
+        if self.state = STATE_COMMUNICATION
+            self.update_attribute(:state, STATE_NAVIGATION)
+            if matched_user.state == STATE_COMMUNICATION || matched_user.state == STATE_NAVIGATION
+                push_user_start_navigation_notifiction(matched_user)
+            end
+        end
+    end
+    
+    def stop_navigation(matched_user)
+        if self.state = STATE_NAVIGATION
+            self.update_attribute(:state, STATE_COMMUNICATION)
+            if matched_user.state == STATE_COMMUNICATION || matched_user.state == STATE_NAVIGATION
+                push_user_stop_navigation_notification(matched_user)
             end
         end
     end
@@ -225,6 +251,8 @@ class User < ActiveRecord::Base
     def stop_communication(receiver)
         if receiver
             self.active_communications.find_by(receiver_id: receiver.id).destroy
+        else
+            self.active_communications.find_by(sender_id: self.id).destroy
         end
     end
     

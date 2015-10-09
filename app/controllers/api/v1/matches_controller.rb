@@ -1,5 +1,5 @@
 class Api::V1::MatchesController < ApplicationController
-    before_action :current_user?
+    # before_action :current_user?
     
     def show
         user = User.find(params[:id])
@@ -16,6 +16,17 @@ class Api::V1::MatchesController < ApplicationController
                 response = {"user" => {"state" => user.state}}
                 render json: response, status: 200
             end
+        else
+            render json: "", status: 404
+        end
+    end
+    
+    def show_location
+        user = User.find(params[:id])
+        if user
+            response = {"location" => {"latitude" => user.latitude,
+                                       "longitude" => user.longitude}}
+            render json: response, status: 200
         else
             render json: "", status: 404
         end
@@ -77,7 +88,24 @@ class Api::V1::MatchesController < ApplicationController
                     user.close(matched_user)
                     render json: "", statue: 200
                 else
+                    user.close(nil)
+                    render json: "", statue: 200
+                end
+            when User::EVENT_START_NAVIGATION
+                matched_user = User.find(params[:match][:matched_user_id])
+                if matched_user
+                    user.start_navigation(matched_user)
+                    render json: "", statue: 200
+                else
                     render json: "", statue: 404
+                end
+            when User::EVENT_STOP_NAVIGATION
+                matched_user = User.find(params[:match][:matched_user_id])
+                if matched_user
+                    user.stop_navigation(matched_user)
+                    render json: "", status: 200
+                else
+                    render json: "", status: 404
                 end
             else
                 render json: "", statue: 400

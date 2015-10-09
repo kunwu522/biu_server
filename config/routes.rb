@@ -69,6 +69,7 @@ Rails.application.routes.draw do
                 post 'passcode' => 'passcodes#create'
                 post 'tplogin' => 'sessions#create_third_party'
                 put 'location/:id' => 'matches#update'
+                get 'location/:id' => 'matches#show_location'
                 put 'match/:id' => 'matches#match'
                 get 'match/:id' => 'matches#show'
                 put 'password/:phone' => 'users#forgot_password'
