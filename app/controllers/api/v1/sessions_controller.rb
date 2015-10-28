@@ -1,4 +1,8 @@
 class Api::V1::SessionsController < ApplicationController
+    
+    api :POST, "/login"
+    param :phone, String, :desc => "phone number"
+    param :password, String, :desc => "password"
     def create
         @user = User.find_by(phone: params[:phone])
         if !@user
@@ -18,6 +22,12 @@ class Api::V1::SessionsController < ApplicationController
         end
     end
     
+    api :POST, "tplogin"
+    param :user, Hash, :desc => "third party login info" do
+        param :open_id, String, :desc => "open id"
+        param :username, String, :desc => "username"
+        param :avatar_url, String, :desc => "user avatar url" 
+    end
     def create_third_party
         @user = User.find_by(open_id: params[:user][:open_id])
         if @user
@@ -51,6 +61,7 @@ class Api::V1::SessionsController < ApplicationController
         end
     end
     
+    api :DELETE, "/logout"
     def destroy
         log_out
         response = {'status' => 'ok',

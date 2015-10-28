@@ -1,6 +1,15 @@
 class Api::V1::PartnersController < ApplicationController
     before_action :current_user?
     
+    api :POST, "/partners"
+    param :partner, Hash, :desc => "user partner" do
+        param :user_id, :number, :desc => "user id"
+        param :sexuality_ids, Array, :desc => "user partner sexualities"
+        param :min_age, :number, :desc => "user partner min age"
+        param :max_age, :number, :desc => "user partner max age"
+        param :zodiac_ids, Array, :desc => "user partner zodiacs"
+        param :style_ids, Array, :desc => "user partner styles"
+    end
     def create
         partner = Partner.find_by(user_id: params[:partner][:user_id])
         if partner
@@ -20,6 +29,15 @@ class Api::V1::PartnersController < ApplicationController
         end
     end
     
+    api :PUT, "/partners/:id"
+    param :partner, Hash, :desc => "user partner" do
+        param :user_id, :number, :desc => "user id"
+        param :sexuality_ids, Array, :desc => "user partner sexualities"
+        param :min_age, :number, :desc => "user partner min age"
+        param :max_age, :number, :desc => "user partner max age"
+        param :zodiac_ids, Array, :desc => "user partner zodiacs"
+        param :style_ids, Array, :desc => "user partner styles"
+    end
     def update
         @partner = Partner.find(params[:id])
         if @partner.update_attributes(partner_params)

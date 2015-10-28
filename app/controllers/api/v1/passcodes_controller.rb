@@ -1,6 +1,8 @@
 require 'submail'
 class Api::V1::PasscodesController < ApplicationController
     
+    api :POST, "passcode"
+    param :code, String, :desc => "code"
     def create
       message_config = {}
       message_config["appid"] = "10241"

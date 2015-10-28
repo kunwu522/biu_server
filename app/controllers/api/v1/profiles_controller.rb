@@ -1,11 +1,29 @@
 class Api::V1::ProfilesController < ApplicationController
     before_action :current_user?
     
+    api :GET, "/profiles/:id"
+    param :profile, Hash, :desc => "user profile" do
+        param :profile_id, :number, :desc => "profile id"
+        param :gender, :number, :desc => "user gender"
+        param :sexuality, :number, :desc => "user sexuality"
+        param :birthday, :number, :desc => "user birthday"
+        param :zodiac, :number, :desc => "user zodiac"
+        param :style, :number, :desc => "user style"
+    end
     def show
         @profile = Profile.find(params[:id])
         respond_with(@profile)
     end
     
+    api :POST, "/profiles"
+    param :profile, Hash, :desc => "user profile" do
+        param :user_id, :number, :desc => "user id"
+        param :gender, :number, :desc => "user gender"
+        param :sexuality_id, :number, :desc => "user sexuality"
+        param :birthday, Date, :desc => "user birthday"
+        param :zodiac_id, :number, :desc => "user zodiac"
+        param :style_id, :number, :desc => "user style"
+    end
     def create
         profile = Profile.find_by(user_id: params[:profile][:user_id])
         puts "user_id: #{params[:profile][:user_id]}, profile: #{profile}"
@@ -27,6 +45,16 @@ class Api::V1::ProfilesController < ApplicationController
         end
     end
     
+    api :PUT, "/profiles/:id"
+    param :id, :number, :desc => "profile id"
+    param :profile, Hash, :desc => "user profile" do
+        param :profile_id, :number, :desc => "profile id"
+        param :gender, :number, :desc => "user gender"
+        param :sexuality_id, :number, :desc => "user sexuality"
+        param :birthday, Date, :desc => "user birthday"
+        param :zodiac_id, :number, :desc => "user zodiac"
+        param :style_id, :number, :desc => "user style"
+    end
     def update
         @profile = Profile.find(params[:id])
         if @profile.update_attributes(profile_params)

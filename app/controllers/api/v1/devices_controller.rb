@@ -1,6 +1,11 @@
 class Api::V1::DevicesController < ApplicationController
     before_action :current_user?
     
+    api :POST, '/devices', "Create device token"
+    param :device, Hash, :desc => "device info" do
+        param :user_id, String, :desc => "user id", :required => true
+        param :token, String, :desc => "device token", :required => true
+    end
     def create
         device = Device.find_by(user_id: params[:device][:user_id])
         if device
@@ -17,6 +22,11 @@ class Api::V1::DevicesController < ApplicationController
         end
     end
     
+    api :PUT, '/devices/:id', "Update device token"
+    param :id, :number
+    param :device, Hash, :desc => "device info" do
+        param :token, String, :desc => "device token", :required => true
+    end
     def update
         user = User.find(params[:id])
         if user

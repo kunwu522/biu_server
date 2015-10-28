@@ -1,5 +1,13 @@
 include NotificationsHelper
 class Api::V1::MessagesController < ApplicationController
+    
+    api :POST, "/messages"
+    param :message, Hash, :desc => "message info" do
+        param :from, :number, :desc => "from user id"
+        param :to, :number, :desc => "to user id"
+        param :type, :number, :desc => "text of image"
+        param :content, String, :desc => "content"
+    end
     def create
         from_id = params[:message][:from]
         to_id = params[:message][:to]
