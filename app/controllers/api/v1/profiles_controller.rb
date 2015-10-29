@@ -20,7 +20,7 @@ class Api::V1::ProfilesController < ApplicationController
         param :user_id, :number, :desc => "user id"
         param :gender, :number, :desc => "user gender"
         param :sexuality_id, :number, :desc => "user sexuality"
-        param :birthday, Date, :desc => "user birthday"
+        param :birthday, String, :desc => "user birthday"
         param :zodiac_id, :number, :desc => "user zodiac"
         param :style_id, :number, :desc => "user style"
     end
@@ -51,7 +51,7 @@ class Api::V1::ProfilesController < ApplicationController
         param :profile_id, :number, :desc => "profile id"
         param :gender, :number, :desc => "user gender"
         param :sexuality_id, :number, :desc => "user sexuality"
-        param :birthday, Date, :desc => "user birthday"
+        param :birthday, String, :desc => "user birthday"
         param :zodiac_id, :number, :desc => "user zodiac"
         param :style_id, :number, :desc => "user style"
     end
@@ -64,6 +64,7 @@ class Api::V1::ProfilesController < ApplicationController
             }
             render json: response
         else
+            logger.error { "#{@profile.errors.fullmessages}" }
             render json: @profile.errors, status: :unprocessable_entity
         end
     end
