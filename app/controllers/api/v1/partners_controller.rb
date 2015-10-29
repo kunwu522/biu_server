@@ -3,10 +3,10 @@ class Api::V1::PartnersController < ApplicationController
     
     api :POST, "/partners"
     param :partner, Hash, :desc => "user partner" do
-        param :user_id, :number, :desc => "user id"
+        param :user_id, String, :desc => "user id"
         param :sexuality_ids, Array, :desc => "user partner sexualities"
-        param :min_age, :number, :desc => "user partner min age"
-        param :max_age, :number, :desc => "user partner max age"
+        param :min_age, String, :desc => "user partner min age"
+        param :max_age, String, :desc => "user partner max age"
         param :zodiac_ids, Array, :desc => "user partner zodiacs"
         param :style_ids, Array, :desc => "user partner styles"
     end
@@ -31,10 +31,10 @@ class Api::V1::PartnersController < ApplicationController
     
     api :PUT, "/partners/:id"
     param :partner, Hash, :desc => "user partner" do
-        param :user_id, :number, :desc => "user id"
+        param :user_id, String, :desc => "user id"
         param :sexuality_ids, Array, :desc => "user partner sexualities"
-        param :min_age, :number, :desc => "user partner min age"
-        param :max_age, :number, :desc => "user partner max age"
+        param :min_age, String, :desc => "user partner min age"
+        param :max_age, String, :desc => "user partner max age"
         param :zodiac_ids, Array, :desc => "user partner zodiacs"
         param :style_ids, Array, :desc => "user partner styles"
     end

@@ -3,12 +3,12 @@ class Api::V1::ProfilesController < ApplicationController
     
     api :GET, "/profiles/:id"
     param :profile, Hash, :desc => "user profile" do
-        param :profile_id, :number, :desc => "profile id"
-        param :gender, :number, :desc => "user gender"
-        param :sexuality, :number, :desc => "user sexuality"
-        param :birthday, :number, :desc => "user birthday"
-        param :zodiac, :number, :desc => "user zodiac"
-        param :style, :number, :desc => "user style"
+        param :profile_id, String, :desc => "profile id"
+        param :gender, String, :desc => "user gender"
+        param :sexuality, String, :desc => "user sexuality"
+        param :birthday, String, :desc => "user birthday"
+        param :zodiac, String, :desc => "user zodiac"
+        param :style, String, :desc => "user style"
     end
     def show
         @profile = Profile.find(params[:id])
@@ -17,12 +17,12 @@ class Api::V1::ProfilesController < ApplicationController
     
     api :POST, "/profiles"
     param :profile, Hash, :desc => "user profile" do
-        param :user_id, :number, :desc => "user id"
-        param :gender, :number, :desc => "user gender"
-        param :sexuality_id, :number, :desc => "user sexuality"
+        param :user_id, String, :desc => "user id"
+        param :gender, String, :desc => "user gender"
+        param :sexuality_id, String, :desc => "user sexuality"
         param :birthday, String, :desc => "user birthday"
-        param :zodiac_id, :number, :desc => "user zodiac"
-        param :style_id, :number, :desc => "user style"
+        param :zodiac_id, String, :desc => "user zodiac"
+        param :style_id, String, :desc => "user style"
     end
     def create
         profile = Profile.find_by(user_id: params[:profile][:user_id])
@@ -48,12 +48,12 @@ class Api::V1::ProfilesController < ApplicationController
     api :PUT, "/profiles/:id"
     param :id, :number, :desc => "profile id"
     param :profile, Hash, :desc => "user profile" do
-        param :profile_id, :number, :desc => "profile id"
-        param :gender, :number, :desc => "user gender"
-        param :sexuality_id, :number, :desc => "user sexuality"
+        param :profile_id, String, :desc => "profile id"
+        param :gender, String, :desc => "user gender"
+        param :sexuality_id, String, :desc => "user sexuality"
         param :birthday, String, :desc => "user birthday"
-        param :zodiac_id, :number, :desc => "user zodiac"
-        param :style_id, :number, :desc => "user style"
+        param :zodiac_id, String, :desc => "user zodiac"
+        param :style_id, String, :desc => "user style"
     end
     def update
         @profile = Profile.find(params[:id])

@@ -3,9 +3,9 @@ class Api::V1::MessagesController < ApplicationController
     
     api :POST, "/messages"
     param :message, Hash, :desc => "message info" do
-        param :from, :number, :desc => "from user id"
-        param :to, :number, :desc => "to user id"
-        param :type, :number, :desc => "text of image"
+        param :from, String, :desc => "from user id"
+        param :to, String, :desc => "to user id"
+        param :type, String, :desc => "text of image"
         param :content, String, :desc => "content"
     end
     def create

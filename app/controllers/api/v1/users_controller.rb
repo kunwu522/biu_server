@@ -4,34 +4,34 @@ class Api::V1::UsersController < ApplicationController
     before_action :current_user?, except: [:create,:forgot_password]
     
     api :GET, "/users/:id"
-    param :state, :number, :desc => "matched state"
-    param :result, :number, :desc => "matched result"
-    param :distance, :number, :desc => "distance of two matched user"
+    param :state, String, :desc => "matched state"
+    param :result, String, :desc => "matched result"
+    param :distance, String, :desc => "distance of two matched user"
     param :user, Hash, :desc => "user state" do
-        param :state, :number, :desc => "user state" 
+        param :state, String, :desc => "user state" 
     end
     param :matched_user, Hash, :desc => "matched user info" do
-        param :user_id, :number, :desc => "user id"
+        param :user_id, String, :desc => "user id"
         param :phone, String, :desc => "user phone number"
         param :username, String, :desc => "username"
         param :open_id, String, :desc => "id for login with wechat or weibo"
         param :avatar_url, String, :desc => "avatar url"
         param :avatar_large_url, String, :desc => "avatar large url"
-        param :state, :number, :desc => "user state"
+        param :state, String, :desc => "user state"
         param :device_token, String, :desc => "device token"
         param :profile, Hash, :desc => "user profile" do
-            param :profile_id, :number, :desc => "profile id"
-            param :gender, :number, :desc => "user gender"
-            param :sexuality, :number, :desc => "user sexuality"
-            param :birthday, :number, :desc => "user birthday"
-            param :zodiac, :number, :desc => "user zodiac"
-            param :style, :number, :desc => "user style"
+            param :profile_id, String, :desc => "profile id"
+            param :gender, String, :desc => "user gender"
+            param :sexuality, String, :desc => "user sexuality"
+            param :birthday, String, :desc => "user birthday"
+            param :zodiac, String, :desc => "user zodiac"
+            param :style, String, :desc => "user style"
         end
         param :partner, Hash, :desc => "user partner" do
-            param :partner_id, :number, :desc => "partner id"
+            param :partner_id, String, :desc => "partner id"
             param :sexuality_ids, Array, :desc => "user partner sexualities"
-            param :min_age, :number, :desc => "user partner min age"
-            param :max_age, :number, :desc => "user partner max age"
+            param :min_age, String, :desc => "user partner min age"
+            param :max_age, String, :desc => "user partner max age"
             param :zodiac_ids, Array, :desc => "user partner zodiacs"
             param :style_ids, Array, :desc => "user partner styles"
         end
@@ -104,7 +104,7 @@ class Api::V1::UsersController < ApplicationController
     end
     
     api :PUT, "resetpassword/:id"
-    param :id, :number, :desc => "user id"
+    param :id, String, :desc => "user id"
     param :user, Hash, :desc => "password info" do
         param :password, String, :desc => "password"
         param :password_confirmation, String, :desc => "password confirmation"
